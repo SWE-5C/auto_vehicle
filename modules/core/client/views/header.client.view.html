@@ -6,7 +6,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a ui-sref="home" class="navbar-brand">Autonomous Vehicles Project</a>
+    <a ui-sref="home" class="navbar-brand">Gainesville Autonomous Vehicles</a>
   </div>
   <nav class="collapse navbar-collapse" collapse="!isCollapsed" role="navigation">
     <ul class="nav navbar-nav" ng-if="menu.shouldRender(authentication.user);">
@@ -21,24 +21,21 @@
       </li>
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
+      <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signup">About</a>
+        <a target=_blank href=https://ufl.qualtrics.com/jfe/form/SV_dnGx4WipnOJkwol>Survey</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">GPS</a>
+        <a ui-sref="">Responses</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Survey</a>
+        <a ui-sref="authentication.signup">Sign Up</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="authentication.signin">Responses</a>
-      </li>
-      <li class="divider-vertical"></li>
-      <li ui-sref-active="active">
-        <a target=_blank href=https://ufl.qualtrics.com/jfe/form/SV_dnGx4WipnOJkwol>First Survey</a>
+        <a ui-sref="authentication.signin">Sign In</a>
       </li>
 
     </ul>
