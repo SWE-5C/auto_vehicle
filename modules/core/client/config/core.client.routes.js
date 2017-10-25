@@ -31,6 +31,12 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
         ignoreState: true
       }
     })
+    .state('test', {
+      url: '/test',
+      data: {
+        ignoreState: true
+      }
+    })
     .state('forbidden', {
       url: '/forbidden',
       templateUrl: 'modules/core/client/views/403.client.view.html',

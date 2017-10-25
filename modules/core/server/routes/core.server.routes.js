@@ -3,6 +3,7 @@
 module.exports = function (app) {
   // Root routing
   var core = require('../controllers/core.server.controller');
+  app.route('/test').get(core.testtransloc);
 
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
@@ -12,4 +13,5 @@ module.exports = function (app) {
 
   // Define application route
   app.route('/*').get(core.renderIndex);
+
 };
