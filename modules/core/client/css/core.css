@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
+@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 .content {
   margin-top: 50px;
 }
@@ -116,9 +118,6 @@ hr {
 
 
 
-
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500);
-@import url(https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css);
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -128,10 +127,10 @@ html, body {
 }
 
 /*body {*/
-  /*color: #444;*/
-  /*font-family: 'Roboto', sans-serif;*/
-  /*font-size: 1rem;*/
-  /*line-height: 1.5;*/
+/*color: #444;*/
+/*font-family: 'Roboto', sans-serif;*/
+/*font-size: 1rem;*/
+/*line-height: 1.5;*/
 /*}*/
 
 .slider {
