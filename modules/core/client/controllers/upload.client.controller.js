@@ -1,16 +1,25 @@
 'use strict';
 
-angular.module('app').controller('myController', function (currentUser, $scope, FileUploader, $sce) {
-  $scope.uploader = new FileUploader();
-  var uploadURL = '/api/upload/' + currentUser._id;
-  $scope.uploadOptions = {
-    queueLimit: 1,
-    autoUpload: true,
-    url: uploadURL
-  };
+angular.module('core').controller('UploadFileController', ['$scope', '$http',
+  function ($scope, $http) {
 
-  $scope.submit = function(){
-    if (!$scope.uploader.queue[0]) return;
-    $scope.uploader.queue[0].upload();
-  };
-});
+    $scope.info = "Default";
+
+    $scope.uploadFile = function() {
+      $scope.info = "TEST";
+      $http({
+        method: 'GET',
+        url: '/api/upload'
+      }).then(function successCallback(response) {
+        // this callback will be called asynchronously
+        // when the response is available
+        $scope.info = response.data;
+        return response.data;
+      }, function errorCallback(response) {
+        // called asynchronously if an error occurs
+        // or server returns response with an error status.
+        $scope.info = response.data;
+      });
+    };
+  }
+]);
