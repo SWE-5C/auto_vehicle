@@ -12,6 +12,10 @@ angular.module('users.admin.routes').config(['$stateProvider',
         url: '/addAdmin',
         templateUrl: 'modules/users/client/views/admin/add-admin.client.view.html'
       })
+      .state('admin.addUX', {
+        url: '/addUX',
+        templateUrl: 'modules/users/client/views/admin/add-ux.client.view.html'
+      })
       .state('admin.addData', {
         url: '/addData',
         templateUrl: 'modules/users/client/views/admin/add-data.client.view.html'
