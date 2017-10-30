@@ -1,16 +1,18 @@
 'use strict';
 
 
-angular.module('core')
-.config(function(uiGmapGoogleMapApiProvider) {
-  uiGmapGoogleMapApiProvider.configure({
-    key: 'AIzaSyCZFjTD5PycADD6a-0PoBz51BEOcK91Mbs',
-    v: '3.20', //defaults to latest 3.X anyhow
-    libraries: 'weather,geometry,visualization'
-  });
-})
-.controller('HomeController', ['$scope', 'Authentication', '$http', 'uiGmapGoogleMapApi',
-  function($scope, Authentication, $http, uiGmapGoogleMapApi) {
+angular.module('core',
+  ['uiGmapgoogle-maps']
+)
+// .config(function(uiGmapGoogleMapApiProvider) {
+//   uiGmapGoogleMapApiProvider.configure({
+//     key: 'AIzaSyCZFjTD5PycADD6a-0PoBz51BEOcK91Mbs',
+//     v: '3.20', //defaults to latest 3.X anyhow
+//     libraries: 'weather,geometry,visualization'
+//   });
+// })
+.controller('HomeController', ['$scope', 'Authentication', '$http',
+  function($scope, Authentication, $http) {
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
@@ -31,9 +33,9 @@ angular.module('core')
       zoom: 8
     };
 
-    uiGmapGoogleMapApi.then(function(maps) {
-      console.log("This is being accessed");
-    });
+    // uiGmapGoogleMapApi.then(function(maps) {
+    //   console.log("This is being accessed");
+    // });
 
   }
 ]);
