@@ -37,20 +37,25 @@
               </h1>
             </div>
           </div>
-          <div class="row">
-            <div class="text-center">
               <p>
-                <iframe src="//www.google.com/maps/embed/v1/place?q=UniversityofFlorida,Gainesville%20Rd,%20UK
+                <!-- <iframe src="//www.google.com/maps/embed/v1/place?q=UniversityofFlorida,Gainesville%20Rd,%20UK
                 &zoom=12
                 &key=AIzaSyA9kHJlfEoiPIf0Zfv6LXMSjjJxrpJinOQ">
-                </iframe>
+                </iframe> -->
               </p>
+              <br>
+
+              <div id="mapper" style="height:500px; width: 100%;">
+              </div>
+              <div class="angular-google-map-container">
+              <ui-gmap-google-map center="map.center" zoom="map.zoom" style="height: 400%; width: 100%;"></ui-gmap-google-map>  
+              </div>
+
               <p>
-                {{sample}}
-                ajax goes here 116 4001214
+                {{sample}}<br>
+                UF: 116 <br>
+                Route Number: 4001214
               </p>
-            </div>
-          </div>
         </div>
       </div>
 
@@ -64,4 +69,27 @@
 		<div class="text-center">Click <a href="https://twitter.com/autonomouscarr?lang=en" style="color: #cc5500" target="_blank">here</a> to go to Twitter.</div>
 
       </div>
+
+      <script>
+        function initMap(){
+              var map = new google.maps.Map(document.getElementById('mapper'), {
+                  zoom: 12,
+                  center: {lat: 29.6436, lng: 82.3549}
+            });
+
+              // var marker = new google.maps.Marker({
+              //   position: $scope.sample,
+              //   map: map,
+              //   title: 'Vehicle A'
+              // });
+        }
+      </script>
+      <!-- <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCcr0SaiGl6iYijtX3GehD7l4QqJRhOoxo&callback=initMap"
+    async defer></script> -->
+    <script src="/public/lib/lodash/dist/lodash.min.js"></script>
+    <script src="/public/lib/angular-simple-logger/dist/angular-simple-logger.min.js"></script>
+    <!-- <script src='//maps.googleapis.com/maps/api/js?key=AIzaSyCZFjTD5PycADD6a-0PoBz51BEOcK91Mbs&sensor=false'></script> -->
+
+    <script src="/public/lib/angular-google-maps/dist/angular-google-maps.min.js"></script>
+
 </section>
