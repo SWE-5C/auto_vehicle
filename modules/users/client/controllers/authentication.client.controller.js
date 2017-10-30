@@ -46,11 +46,11 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         // If successful we assign the response to the global user model
         $scope.authentication.user = response;
 
-       // debugger;
+        //debugger;
         var flag = Boolean(false);
         var arrayLength = $scope.authentication.user.roles.length;
         for(var index=0; index<arrayLength; index++){
-          if($scope.authentication.user.roles[index] == 'admin'){
+          if($scope.authentication.user.roles[index] === 'admin'){
             console.log("FOUND");
             flag = true;
           }
@@ -58,7 +58,7 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
 
         // And redirect to the previous or home page
         if(flag){
-            $state.go(/*$state.previous.state.name ||*/ 'dashboard', $state.previous.params);
+          $state.go(/*$state.previous.state.name ||*/ 'dashboard', $state.previous.params);
         }
 
         else{
