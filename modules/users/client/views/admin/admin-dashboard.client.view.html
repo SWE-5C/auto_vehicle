@@ -5,8 +5,12 @@
 	</head>
 	<body>
 		<center><h1>DASHBOARD</h1></center>
-		<button ng-click>Add Admin</button>
-		<button ng-click>Add Data</button>
-		<button ng-click>Add User Experience</button>
+		<a ui-sref = "admin.addAdmin">
+			<button ng-click>Add Admin</button>
+		</a>
+		<a ui-sref = "admin.addData">
+			<button ng-click>Add Data</button>
+		</a>
+		<button ng-click>Manage User Experiences</button>
 	</body>
 </html>

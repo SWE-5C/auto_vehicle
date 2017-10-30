@@ -8,6 +8,14 @@ angular.module('users.admin.routes').config(['$stateProvider',
         url: '/dashboard',
         templateUrl: 'modules/users/client/views/admin/admin-dashboard.client.view.html'
       })
+      .state('admin.addAdmin', {
+        url: '/addAdmin',
+        templateUrl: 'modules/users/client/views/admin/add-admin.client.view.html'
+      })
+      .state('admin.addData', {
+        url: '/addData',
+        templateUrl: 'modules/users/client/views/admin/add-data.client.view.html'
+      })
       .state('admin.users', {
         url: '/users',
         templateUrl: 'modules/users/client/views/admin/list-users.client.view.html',
