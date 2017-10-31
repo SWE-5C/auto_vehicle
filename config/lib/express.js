@@ -17,13 +17,7 @@ var config = require('../config'),
   helmet = require('helmet'),
   flash = require('connect-flash'),
   consolidate = require('consolidate'),
-  path = require('path'),
-  router = express.Router(),
-  multiparty = require('connect-multiparty')(),
-  User = require('..\\..\\modules\\users\\server\\models\\user.server.model.js'),
-  fs = require('fs'),
-  mongoose = require('mongoose'),
-  Gridfs = require('gridfs-stream');
+  path = require('path');
 
 
 

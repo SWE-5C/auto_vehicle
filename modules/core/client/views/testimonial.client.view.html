@@ -1,7 +1,7 @@
-<div class="row" ng-controller="UploadFileController as upload">
+<div class="row" ng-controller="UploadFileController as upload" ng-init="example()">
   <div class="col-md-offset-1 col-md-10 formWrapper">
     <div class="page-header">
-      <h3>Add User experience</h3>
+      <h3>Submit a Testimonial</h3><br>
       <!--
         Validation of forms is important to ensure that a user submits the correct information. Angular provides
         some useful APIs for validating forms. Documentation can be found here:
@@ -10,7 +10,7 @@
         conveience methods for displaying these error messages to the user. If you're not quite sure what this code is doing, take a look at this link:
           https://github.com/paulyoder/angular-bootstrap-show-errors
        -->
-      <form name="experienceForm" class="form-horizontal" ng-submit="create(experienceForm.$valid)">
+      <form name="Form" class="form-horizontal" ng-submit="create(experienceForm.$valid)">
         <fieldset>
           <div class="form-group" show-errors>
             <label for="name">Name</label>
@@ -18,7 +18,6 @@
             <!--<div ng-messages="experienceForm.name.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Name is Optional</p>
             </div> -->
-            Full Name: {{firstName + " " + lastName}}
           </div>
           <br>
 
@@ -47,26 +46,16 @@
             <label for="exampleTextarea">Enter Testimonial Below:</label>
             <br>
             <textarea class="form-control" id="exampleTextarea" placeholder="Testimonial text..." rows="5" required></textarea>
-          </div>
+
 
           <br>
 
-
-          <div class="form-group">
-                   <label class="custom-file">
-          <input type="file" id="file" class="custom-file-input" nv-file-select uploader=”uploader” options=”uploadOptions” required>
-          <span class="custom-file-control"></span>
-        </label>
+          <button id="upload_widget_opener">Upload multiple images</button>
         <br>
 		<br>
             <input type="submit" class="btn btn-default">
-
           </div>
 
-          <div>
-            <button ng-click="uploadFile()">UploadTEST</button>
-            <p>JSON: {{info}}</p>
-          </div>
 
           <div ng-show="error" class="text-danger">
             <strong ng-bind="error"></strong>

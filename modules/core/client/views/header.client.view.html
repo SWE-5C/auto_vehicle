@@ -27,7 +27,7 @@
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a ui-sref="">Responses</a>
+        <a ui-sref="data-visual">Responses</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
@@ -40,12 +40,24 @@
 
     </ul>
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
+      <li class="divider-vertical"></li>
+      <li ui-sref-active="active">
+        <a target=_blank href=https://ufl.qualtrics.com/jfe/form/SV_dnGx4WipnOJkwol>Survey</a>
+      </li>
+      <li class="divider-vertical"></li>
+      <li ui-sref-active="active">
+        <a ui-sref="data-visual">Responses</a>
+      </li>
       <li class="dropdown" dropdown>
         <a class="dropdown-toggle user-header-dropdown-toggle" dropdown-toggle role="button">
           <img ng-src="{{authentication.user.profileImageURL}}" alt="{{authentication.user.displayName}}" class="header-profile-image" />
           <span ng-bind="authentication.user.displayName"></span> <b class="caret"></b>
         </a>
         <ul class="dropdown-menu" role="menu">
+          <li ui-sref-active="active">
+            <a ui-sref="testimonial-upload">Submit a Testimonial</a>
+          </li>
+          <li class="divider"></li>
           <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>
           </li>
