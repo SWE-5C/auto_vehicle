@@ -34,6 +34,10 @@ module.exports = {
   app: {
     title: defaultEnvConfig.app.title + ' - Development Environment'
   },
+  tableauProvider: {
+    host: 'https://tableau.example.com/',
+    siteRoot: 'site/demo/'
+  },
   facebook: {
     clientID: process.env.FACEBOOK_ID || 'APP_ID',
     clientSecret: process.env.FACEBOOK_SECRET || 'APP_SECRET',
