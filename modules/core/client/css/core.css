@@ -114,90 +114,6 @@ hr {
   background-color: #3E78B2;
 }
 
-#institutional-footer {
-  border-top: $orange 5px solid;
-  background-color: $black-82;
-  address {
-    font-style: normal;
-  }
-  h2 {
-    font-size:1.4em;
-  }
-  p {
-    font-size:0.9em;
-    line-height: 1.25em;
-  }
-  .container {
-    position: relative;
-    padding: 20px 0;
-  }
-}
-
-#footer_container {
-  float: left;
-  width: 100%;
-}
-
-.footer-links {
-  @include spaced-headline (sans);
-  ul {
-    margin: 0.5em 0 0 0;
-    padding:0;
-  }
-  li {
-    margin-bottom: 0.75em;
-  }
-}
-.mail {
-  background: transparent url(images/bg-sprite-transparent.png) -474px -77px no-repeat;
-  padding-left:30px;
-  margin-left:5px;
-  height:20px;
-}
-.phone {
-  background: transparent url(images/bg-sprite-transparent.png) -1263px -394px no-repeat;
-  padding-left:30px;
-  margin-left:5px;
-  height:20px;
-}
-.pnetf {
-  background: transparent url(images/bg-sprite-transparent.png) -238px -250px no-repeat;
-  width:360px;
-  height:70px;
-  margin:0 auto;
-}
-.uf-logo {
-  width:210px;
-  height:50px;
-  background: transparent url(images/bg-sprite-transparent.png) -10px -268px no-repeat;
-}
-.gift {
-  padding: 15px 0 15px 50px;
-  background: transparent url(images/bg-sprite-transparent.png) -750px -155px no-repeat;
-}
-.online-store {
-  padding-left: 0px;
-  min-height:40px;
-  background: transparent url(images/bg-sprite-transparent.png) -750px -226px no-repeat;
-}
-.footer-bottom {
-  background-color:$black-50;
-  color: $black-75;
-  font-size: 0.9em;
-  a, a:link, a:active, a:visited {
-    color: $white;
-  }
-  ul {
-    margin:1em 0 0 0;
-    padding:0;
-    clear:both;
-  }
-  li {
-    float:left;
-    margin-right:1.5em;
-    padding:1em 0;
-  }
-
 *, *:before, *:after {
   box-sizing: border-box;
 }
@@ -343,3 +259,87 @@ html, body {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
+
+#institutional-footer {
+  border-top: $orange 5px solid;
+  background-color: $black-82;
+  address {
+    font-style: normal;
+  }
+  h2 {
+    font-size:1.4em;
+  }
+  p {
+    font-size:0.9em;
+    line-height: 1.25em;
+  }
+  .container {
+    position: relative;
+    padding: 20px 0;
+  }
+}
+
+#footer_container {
+  float: left;
+  width: 100%;
+}
+
+.footer-links {
+  @include spaced-headline (sans);
+  ul {
+    margin: 0.5em 0 0 0;
+    padding:0;
+  }
+  li {
+    margin-bottom: 0.75em;
+  }
+}
+.mail {
+  background: transparent url(images/bg-sprite-transparent.png) -474px -77px no-repeat;
+  padding-left:30px;
+  margin-left:5px;
+  height:20px;
+}
+.phone {
+  background: transparent url(images/bg-sprite-transparent.png) -1263px -394px no-repeat;
+  padding-left:30px;
+  margin-left:5px;
+  height:20px;
+}
+.pnetf {
+  background: transparent url(images/bg-sprite-transparent.png) -238px -250px no-repeat;
+  width:360px;
+  height:70px;
+  margin:0 auto;
+}
+.uf-logo {
+  width:210px;
+  height:50px;
+  background: transparent url(images/bg-sprite-transparent.png) -10px -268px no-repeat;
+}
+.gift {
+  padding: 15px 0 15px 50px;
+  background: transparent url(images/bg-sprite-transparent.png) -750px -155px no-repeat;
+}
+.online-store {
+  padding-left: 0px;
+  min-height:40px;
+  background: transparent url(images/bg-sprite-transparent.png) -750px -226px no-repeat;
+}
+.footer-bottom {
+  background-color:$black-50;
+  color: $black-75;
+  font-size: 0.9em;
+  a, a:link, a:active, a:visited {
+    color: $white;
+  }
+  ul {
+    margin:1em 0 0 0;
+    padding:0;
+    clear:both;
+  }
+  li {
+    float:left;
+    margin-right:1.5em;
+    padding:1em 0;
+  }
