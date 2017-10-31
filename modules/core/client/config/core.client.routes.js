@@ -21,6 +21,14 @@ angular.module('core').config(['$stateProvider', '$urlRouterProvider',
       url: '/dashboard',
       templateUrl: 'modules/users/client/views/admin/admin-dashboard.client.view.html'
     })
+    .state('data-visual', {
+       url: '/survey-data',
+       templateUrl: 'modules/core/client/views/visualization.client.view.html'
+     })
+     .state('testimonial-upload', {
+       url: '/upload-testimonial',
+       templateUrl: 'modules/core/client/views/testimonial.client.view.html'
+     })
     .state('not-found', {
       url: '/not-found',
       templateUrl: 'modules/core/client/views/404.client.view.html',
