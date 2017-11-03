@@ -12,7 +12,7 @@
   display: none !important;
 }
 .header-profile-image {
-  opacity: 0.8;
+  opacity: 0.5;
   height: 28px;
   width: 28px;
   border-radius: 50%;
@@ -41,8 +41,9 @@ header.masthead {
   width: 100%;
   min-height: auto;
   text-align: center;
-  color: white;
+  color: white;       /* changed words to white*/
   background-image: url("../img/century\ tower.jpg");
+  background-color: orange;                           /*orange from black because orange is the new black :) */
   background-position: center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -52,6 +53,7 @@ header.masthead {
     position: relative;
     width: 100%;
     padding: 150px 15px 100px;
+    background-color:orange;
     text-align: center; }
     header.masthead .header-content .header-content-inner h1 {
       font-size: 30px;
@@ -111,3 +113,67 @@ hr {
 #bottom{
   background-color: #3E78B2;
 }
+
+/*.navbar-collapse {
+  background-color:#229922 !important;
+    color:#ffffff;
+    border-radius:0;
+
+}
+
+.navbar-nav {
+      background-color:#ffffff !important;
+      border:none;
+    }
+
+    .navbar-inverse {
+      background-color:#ffffff !important;
+      border:none;
+    }*/
+
+/*.carousel-control.left, .carousel-control.right {
+    background-image: none
+}
+*/
+.navbar{          /*this gets ride of the black corners on the nav bar  do not remove*/
+    background-image: none;
+}
+
+/*.countainer{
+
+  background-color: #ff9933 !important;
+}*/
+
+/*.navbar-collapse {
+    background-color:#ff9933;
+    color:#ffffff;
+    border-radius:0;
+}*/
+
+.navbar-collapse .navbar-nav > li > a {   /* make text on navbar tabs white*/
+    color:#fff;
+}
+
+.navbar-collapse .navbar-nav > .active > a {
+    color: #ffffff;
+    background-color:transparent;
+}
+
+.navbar-collapse .navbar-nav > li > a:hover,
+.navbar-collapse .navbar-nav > li > a:focus,
+.navbar-collapse .navbar-nav > .active > a:hover,
+.navbar-collapse .navbar-nav > .active > a:focus,
+.navbar-collapse .navbar-nav > .open >a {    /* makes the blue showup when we mouse over*/
+    text-decoration: none;
+    background-color: #461aff;      
+}
+
+.navbar-collapse .navbar-brand {      /* idk*/
+    color:#eeeeee;
+}
+.navbar-collapse .navbar-toggle {   /* idk*/
+    background-color:#eeeeee;
+}
+/*.navbar-collapse .icon-bar {     
+    background-color:#461aff;
+}*/
