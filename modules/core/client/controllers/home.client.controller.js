@@ -6,7 +6,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       function ($scope, Authentication, $http) {
         // This provides Authentication context.
         $scope.authentication = Authentication;
-        $scope.sample;
 
       function initMap() {
 		  var center = {lat: 29.643971, lng: -82.358410};
@@ -23,14 +22,14 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		  
 
         function moveMarker(){
-        	if ($scope.sample[1] != null){
+        	if ($scope.sample[1] !== null){
         		var test_lat = $scope.sample[1].location.lat;
 	            var test_lng = $scope.sample[1].location.lng;
 		        var latlng = new google.maps.LatLng(test_lat, test_lng);
 		        marker.setPosition(latlng);
         	} 
 	          //console.log(marker.position.lat);
-        }; setInterval(moveMarker, 1000);
+        } setInterval(moveMarker, 1000);
 
 		  //console.log("center: ", $scope.marker2.position);
 		}
