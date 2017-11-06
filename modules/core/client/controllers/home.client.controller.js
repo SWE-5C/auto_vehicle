@@ -45,9 +45,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         setInterval(periodicCalling, 1000);
 
 		google.maps.event.addDomListener(window, "load", initMap);
-
       }
 ]);
-
 })();
 
