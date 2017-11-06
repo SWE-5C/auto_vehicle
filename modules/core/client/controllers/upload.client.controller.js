@@ -25,8 +25,8 @@ angular.module('core').controller('UploadFileController', ['$scope', '$http',
     $scope.example = function () {
       document.getElementById("upload_widget_opener").addEventListener("click", function() {
         cloudinary.openUploadWidget({ cloud_name: 'dlrfbhutw', upload_preset: 'da96pduq'},
-          function(error, result) { console.log(error, result) });
+          function(error, result) { console.log(error, result); });
       }, false);
-    }
+    };
   }
 ]);
