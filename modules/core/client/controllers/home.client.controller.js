@@ -6,7 +6,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
       function ($scope, Authentication, $http) {
         // This provides Authentication context.
         $scope.authentication = Authentication;
-        $scope.sample;
 
       function initMap() {
 		  var center = {lat: 29.643971, lng: -82.358410};
