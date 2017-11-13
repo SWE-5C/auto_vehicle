@@ -19,9 +19,47 @@ var config = require('../config'),
   consolidate = require('consolidate'),
   path = require('path');
 
+
+
 /**
  * Initialize local variables
  */
+// router.post('/upload/:id', multiparty, function(req, res) {
+//   var db = mongoose.connection.db;
+//   var mongoDriver = mongoose.mongo;
+//   var gfs = new Gridfs(db, mongoDriver);
+//
+//   var writestream = gfs.createWriteStream({
+//     filename: req.files.file.name,
+//     mode: 'w',
+//     content_type: req.files.file.mimetype,
+//     metadata: req.body
+//   });
+//
+//   fs.createReadStream(req.files.file.path).pipe(writestream);
+//
+//   writestream.on('close', function (file) {
+//     User.findById(req.params.id, function (err, user) {
+//           // handle error
+//       user.file = file._id;
+//       user.save(function (err, updatedUser) {
+//               // handle error
+//         return res.json(200, updatedUser);
+//       });
+//     });
+//
+//     fs.unlink(req.files.file.path, function (err) {
+//           // handle error
+//       console.log('success!');
+//     });
+//   });
+// });
+
+
+
+
+
+
 module.exports.initLocalVariables = function (app) {
   // Setting application local variables
   app.locals.title = config.app.title;
