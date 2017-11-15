@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('core').controller('UploadFileController', ['$scope', '$http',
+angular.module('core').controller('UploadTestimonialController', ['$scope', '$http',
   function ($scope, $http) {
 
     $scope.info = "Default";
@@ -14,7 +14,7 @@ angular.module('core').controller('UploadFileController', ['$scope', '$http',
               return false;
           }
 
-          $http.post('/api/auth/signup', $scope.credentials).success(function (response) {
+          $http.post('/api/testimonial/submit', $scope.credentials).success(function (response) {
               // If successful we assign the response to the global user model
               $scope.testimonial = response;
 

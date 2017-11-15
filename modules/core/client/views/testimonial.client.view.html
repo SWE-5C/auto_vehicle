@@ -1,4 +1,4 @@
-<div class="row" ng-controller="UploadFileController as upload" ng-init="example()">
+<div class="row" ng-controller="UploadTestimonialController as upload" ng-init="example()">
   <div class="col-md-offset-1 col-md-10 formWrapper">
     <div class="page-header">
       <h3>Submit a Testimonial</h3><br>
@@ -10,11 +10,15 @@
         conveience methods for displaying these error messages to the user. If you're not quite sure what this code is doing, take a look at this link:
           https://github.com/paulyoder/angular-bootstrap-show-errors
        -->
-      <form name="Form" class="form-horizontal" ng-submit="create(experienceForm.$valid)">
+      <form name="testimonialForm" ng-submit="submit(testimonialForm.$valid)" class="submit" novalidate autocomplete="off">
+      <!-- <form name="Form" class="form-horizontal" ng-submit="create(experienceForm.$valid)"> -->
         <fieldset>
           <div class="form-group" show-errors>
             <label for="name">Name</label>
-            <input name="name" type="text" ng-model="firstName" id="name" class="form-control" placeholder="Name" required>
+            <input name="name" type="text" ng-model="form.Name" id="name" class="form-control" placeholder="Name" required>
+            <div ng-messages="testimonialForm.Name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required"> Name is Required.</p>
+            </div>
             <!--<div ng-messages="experienceForm.name.$error" role="alert">
               <p class="help-block error-text" ng-message="required">Name is Optional</p>
             </div> -->
@@ -45,8 +49,10 @@
           <div class="form-group">
             <label for="exampleTextarea">Enter Testimonial Below:</label>
             <br>
-            <textarea class="form-control" id="exampleTextarea" placeholder="Testimonial text..." rows="5" required></textarea>
-
+            <textarea class="form-control" id="exampleTextarea" ng-model="form.text" placeholder="Testimonial text..." rows="5" required></textarea>
+            <div ng-messages="testimonialForm.text.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Testimonial is Required</p>
+            </div>
 
           <br>
 
