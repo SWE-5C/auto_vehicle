@@ -5,7 +5,10 @@ module.exports = function (app) {
   var core = require('../controllers/core.server.controller');
   var testimonials = require('../controllers/testimonial.server.controller');
 
-  // Route for testimonials
+  // Route for uploading testimonial picture
+  app.route('/api/testimonial/picture').post(testimonials.addPicture);
+
+  // Route for testimonial submission
   app.route('/api/testimonial/submit').post(testimonials.submit);
 
   app.route('/test').get(core.testtransloc);

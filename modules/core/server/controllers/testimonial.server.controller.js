@@ -4,9 +4,46 @@
  * Module dependencies.
  */
 var path = require('path'),
+  _ = require('lodash'),
+  fs = require('fs'),
+  multer = require('multer'),
+  config = require(path.resolve('./config/config')),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller')),
   mongoose = require('mongoose'),
   Testimonial = mongoose.model('Testimonial');
+
+/**
+ * Update profile picture
+ */
+exports.addPicture = function (req, res) {
+  var testimonial = req.testimonial;
+  var message = null;
+  var upload = multer(config.uploads.profileUpload).single('newPicture');
+  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
+
+  // Filtering to upload only images
+  upload.fileFilter = profileUploadFileFilter;
+
+    upload(req, res, function (uploadError) {
+      if(uploadError) {
+        return res.status(400).send({
+          message: 'Error occurred while uploading picture'
+        });
+      } else {
+        testimonial.picture = config.uploads.profileUpload.dest + req.file.filename;
+
+        user.save(function (saveError) {
+          if (saveError) {
+            return res.status(400).send({
+              message: errorHandler.getErrorMessage(saveError)
+            });
+          } else {
+              res.json(user);
+          }
+        });
+      }
+    });
+};
 
 /**
  * Submit
