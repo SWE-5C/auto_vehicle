@@ -9,7 +9,7 @@ var path = require('path'),
   Testimonial = mongoose.model('Testimonial');
 
 /**
- * Signup
+ * Submit
  */
 exports.submit = function (req, res) {
   // For security measurement we remove the roles from the req.body object

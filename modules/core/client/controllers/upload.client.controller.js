@@ -14,7 +14,7 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
               return false;
           }
 
-          $http.post('/api/testimonial/submit', $scope.credentials).success(function (response) {
+          $http.post('/api/testimonial/submit', $scope.form).success(function (response) {
               // If successful we assign the response to the global user model
               $scope.testimonial = response;
 
