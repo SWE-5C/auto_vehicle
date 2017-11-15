@@ -1,13 +1,13 @@
 'use strict';
 
-angular.module('core').controller('UploadTestimonialController', ['$scope', '$http',
-  function ($scope, $http) {
+angular.module('core').controller('UploadTestimonialController', ['$scope', '$http', '$state',
+  function ($scope, $http, $state) {
 
     $scope.info = "Default";
 
       $scope.submit = function (isValid) {
           $scope.error = null;
-
+          console.log("HI NIKHIL TEST WORKING barely");
           if (!isValid) {
               $scope.$broadcast('show-errors-check-validity', 'userForm');
 
@@ -17,13 +17,13 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
           $http.post('/api/testimonial/submit', $scope.form).success(function (response) {
               // If successful we assign the response to the global user model
               $scope.testimonial = response;
-              $console.log("HI NIKHIL TEST WORKING");
+              console.log("HI NIKHIL TEST WORKING");
 
               // And redirect to the previous or home page
               $state.go('home' || $state.previous.state.name, $state.previous.params);
           }).error(function (response) {
               $scope.error = response.message;
-              $console.log("HI NIKHIL ERRORRRRRRR");
+              console.log("HI NIKHIL ERRORRRRRRR");
           });
       };
 
