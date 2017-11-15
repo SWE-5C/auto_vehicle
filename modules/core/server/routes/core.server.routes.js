@@ -3,7 +3,7 @@
 module.exports = function (app) {
   // Root routing
   var core = require('../controllers/core.server.controller');
-  var testimonials = require('../controllers/upload.client.controller');
+  var testimonials = require('../controllers/testimonial.server.controller');
 
   // Route for testimonials
   app.route('/api/testimonial/submit').post(testimonials.submit);
