@@ -23,7 +23,7 @@ var TestimonialSchema = new Schema({
   picture: {
     type: String,
     trim: true,
-    default: ''
+    default: 'modules/users/client/img/profile/default.png'
   }
 });
 
