@@ -17,11 +17,13 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
           $http.post('/api/testimonial/submit', $scope.credentials).success(function (response) {
               // If successful we assign the response to the global user model
               $scope.testimonial = response;
+              $console.log("HI NIKHIL TEST WORKING");
 
               // And redirect to the previous or home page
               $state.go('home' || $state.previous.state.name, $state.previous.params);
           }).error(function (response) {
               $scope.error = response.message;
+              $console.log("HI NIKHIL ERRORRRRRRR");
           });
       };
 
