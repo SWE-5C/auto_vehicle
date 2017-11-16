@@ -14,7 +14,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 	        });
 	       };
 		 setInterval(periodicCalling, 1000);
-     	
+
      	function initMap() {
 		  var center = {lat: 29.643971, lng: -82.358410};
 		  var vehicle_1 = {lat: 29.643979, lng: -82.358415};
@@ -27,7 +27,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		    position: center,
 		    map: map
 		  });
-		  
+
 
 	     function moveMarker(){
 	        	if ($scope.sample[1] !== null){
@@ -35,7 +35,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		            var test_lng = $scope.sample[1].location.lng;
 			        var latlng = new google.maps.LatLng(test_lat, test_lng);
 			        marker.setPosition(latlng);
-	        	} 
+	        	}
 		          //console.log(marker.position.lat);
 	        } setInterval(moveMarker, 1000);
 
@@ -43,9 +43,9 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 		}
 		google.maps.event.addDomListener(window, "load", initMap);
 
- 
-            
-     
+
+
+
 
       window.twttr = (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0],
@@ -67,8 +67,7 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
 
 	  twttr.widgets.load();
 
-		
+
       }
 ]);
 })();
-
