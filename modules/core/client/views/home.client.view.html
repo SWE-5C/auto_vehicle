@@ -1,5 +1,5 @@
 <DOCTYPE html>
-<section ng-controller="HomeController">
+<section ng-controller="HomeController" ng-init="periodicCalling($event)">
     <header class="masthead">
         <div class="header-content">
           <div class="header-content-inner">
@@ -11,7 +11,7 @@
 <!--MAP TESTING STARTS HERE       ///////////////////////////////////////////////////  -->
 <style>
        #map {
-        height: 400px;
+        min-height: 600px;
         width: 100%;
        }
 </style>
@@ -76,25 +76,19 @@
       </div>
 
       <div id="mapper">
+        <!-- <div id="map"></div> -->
         <div class="container">
           <div class="row">
             <div class="text-center">
               <h1>
                   Track the cars!
-                  <div id="map"></div>
+                  <div id="map" ng-init="testEvent($event)"></div>
               </h1>
 
             </div>
           </div>
           <div class="row">
             <div class="text-center">
-
-              <!--p>
-                <iframe src="//www.google.com/maps/embed/v1/place?q=UniversityofFlorida,Gainesville%20Rd,%20UK
-                &zoom=12
-                &key=AIzaSyA9kHJlfEoiPIf0Zfv6LXMSjjJxrpJinOQ">
-                </iframe>
-              </p-->
               <table style="width:100%">
                 <tr>
                   <th>bus</th>
@@ -103,8 +97,8 @@
                 </tr>
                 <tr>
                   <td>0</td>
-                  <td>{{sample[0].location.lat}}</td>
-                  <td>{{sample[0].location.lng}}</td>
+                  <td ng-model="numa1">{{sample[0].location.lat}}</td>
+                  <td ng-model="numa2">{{sample[0].location.lng}}</td>
                 </tr>
                 <tr>
                   <td>1</td>
