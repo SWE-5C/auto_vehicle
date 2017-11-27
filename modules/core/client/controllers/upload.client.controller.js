@@ -13,6 +13,10 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
 
               return false;
           }
+          if (!$scope.form.picture){
+              $scope.error = 'Please upload a picture.';
+              return false;
+          }
 
           $http.post('/api/testimonial/submit', $scope.form).success(function (response) {
               // If successful we assign the response to the global user model
@@ -43,10 +47,13 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
       });
     };
 
-    $scope.example = function () {
+    $scope.uploadWidget = function () {
       document.getElementById("upload_widget_opener").addEventListener("click", function() {
         cloudinary.openUploadWidget({ cloud_name: 'dlrfbhutw', upload_preset: 'da96pduq'},
-          function(error, result) { console.log(error, result); });
+          function(error, result) {
+          console.log(error, result);
+          $scope.form.picture = result[0].url;
+        });
       }, false);
     };
   }

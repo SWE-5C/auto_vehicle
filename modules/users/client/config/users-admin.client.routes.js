@@ -14,7 +14,7 @@ angular.module('users.admin.routes').config(['$stateProvider',
       })
       .state('admin.addUX', {
         url: '/addUX',
-        templateUrl: 'modules/users/client/views/admin/add-ux.client.view.html'
+        templateUrl: 'modules/users/client/views/admin/experience-list.client.view.html'
       })
       .state('admin.addData', {
         url: '/addData',

@@ -13,39 +13,6 @@ var path = require('path'),
   Testimonial = mongoose.model('Testimonial');
 
 /**
- * Update profile picture
- */
-exports.addPicture = function (req, res) {
-  var testimonial = req.testimonial;
-  var message = null;
-  var upload = multer(config.uploads.profileUpload).single('newPicture');
-  var profileUploadFileFilter = require(path.resolve('./config/lib/multer')).profileUploadFileFilter;
-
-  // Filtering to upload only images
-  upload.fileFilter = profileUploadFileFilter;
-
-    upload(req, res, function (uploadError) {
-      if(uploadError) {
-        return res.status(400).send({
-          message: 'Error occurred while uploading picture'
-        });
-      } else {
-        testimonial.picture = config.uploads.profileUpload.dest + req.file.filename;
-
-        user.save(function (saveError) {
-          if (saveError) {
-            return res.status(400).send({
-              message: errorHandler.getErrorMessage(saveError)
-            });
-          } else {
-              res.json(user);
-          }
-        });
-      }
-    });
-};
-
-/**
  * Submit
  */
 exports.submit = function (req, res) {
@@ -56,12 +23,7 @@ exports.submit = function (req, res) {
   var testimonial = new Testimonial(req.body);
   var message = null;
 
-  // Add missing user fields
-  testimonial.picture = 'TEST_STRING';
-  //user.provider = 'local';
-  //user.displayName = user.firstName + ' ' + user.lastName;
-
-  // Then save the user
+  // Then save the testimonial
   testimonial.save(function (err) {
     if (err) {
       return res.status(400).send({
