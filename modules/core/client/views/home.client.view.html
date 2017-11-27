@@ -1,5 +1,5 @@
 <DOCTYPE html>
-<section ng-controller="HomeController">
+<section ng-controller="HomeController" ng-init="periodicCalling($event)">
     <header class="masthead">
         <div class="header-content">
           <div class="header-content-inner">
@@ -82,7 +82,7 @@
             <div class="text-center">
               <h1>
                   Track the cars!
-                  <div id="map" ng-init='initialize()'></div>
+                  <div id="map" ng-init="testEvent($event)"></div>
               </h1>
 
             </div>
@@ -97,8 +97,8 @@
                 </tr>
                 <tr>
                   <td>0</td>
-                  <td>{{sample[0].location.lat}}</td>
-                  <td>{{sample[0].location.lng}}</td>
+                  <td ng-model="numa1">{{sample[0].location.lat}}</td>
+                  <td ng-model="numa2">{{sample[0].location.lng}}</td>
                 </tr>
                 <tr>
                   <td>1</td>
