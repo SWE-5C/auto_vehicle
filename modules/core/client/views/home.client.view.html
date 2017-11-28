@@ -37,34 +37,30 @@
 
         </div>
       <div id="testimonials">
-            <div class="container">
+            <div class="container" ng-init="grabTestimonials()">
 
 
               <div class="slider">
-                <!--<input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>-->
-                <!--<input type="radio" name="slider" title="slide2" class="slider__nav"/>-->
-                <!--<input type="radio" name="slider" title="slide3" class="slider__nav"/>-->
-                <!--<input type="radio" name="slider" title="slide4" class="slider__nav"/>-->
                 <div class="slider__inner">
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Todd</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick1.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick1.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick1.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src="http://static2.businessinsider.com/image/5899ffcf6e09a897008b5c04-1200/.jpg" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Spencer</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick2.url}} alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick2.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick2.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa  "></i>
-                    <img class="slider__image" src="https://odesk-blog-content.s3.amazonaws.com/uploads/2014/10/02123010/profile-photo_friendly.jpg" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Larry</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick3.url}} alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick3.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick3.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src="http://events.leagueofblackwomen.org/wp-content/uploads/2015/07/Thumbsupblackwoman.jpg" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Diamond</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick4.url}} alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick4.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick4.text}}</p>
                   </div>
                 </div>
               </div>
