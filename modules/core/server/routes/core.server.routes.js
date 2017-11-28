@@ -5,11 +5,10 @@ module.exports = function (app) {
   var core = require('../controllers/core.server.controller');
   var testimonials = require('../controllers/testimonial.server.controller');
 
-  // Route for testimonial submission
-  app.route('/api/testimonial/submit').post(testimonials.submit);
-
   app.route('/test').get(core.testtransloc);
 
+  // Route for testimonial submission
+  app.route('/api/testimonial/submit').post(testimonials.submit);
   // Define error pages
   app.route('/server-error').get(core.renderServerError);
 
