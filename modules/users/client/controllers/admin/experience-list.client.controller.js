@@ -10,10 +10,7 @@ angular.module('users.admin').controller('UserExperienceController', ['$scope', 
       console.log(err);
       }
     );
-
-    $scope.showImage = function(img){
-    }
-
+    
     $scope.buildPager = function () {
       $scope.pagedItems = [];
       $scope.itemsPerPage = 15;
