@@ -7,6 +7,7 @@ var path = require('path'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
   Testimonial = mongoose.model('Testimonial'),
+  Pick = mongoose.model('Chosen'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -89,7 +90,7 @@ exports.listTestimonials = function (req, res) {
  * List of Picks of testimonials
  */
 exports.listPicks = function (req, res) {
-  Chosen.find().exec(function (err, picks) {
+  Pick.find().exec(function (err, picks) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
@@ -103,22 +104,41 @@ exports.listPicks = function (req, res) {
  * Save Test
  */
 exports.saveTest = function (req, res) {
-  var user = req.model;
+  // var user = req.model;
 
   //For security purposes only merge these parameters
-  user.firstName = req.body.firstName;
-  user.lastName = req.body.lastName;
-  user.displayName = user.firstName + ' ' + user.lastName;
-  user.roles = req.body.roles;
 
-  user.save(function (err) {
+  var exChosen = new Pick({
+    pick1: {
+      fullName: 'Michael Samper',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id fermentum leo. Pellentesque et suscipit nisi. Sed eu felis quis urna pellentesque pulvinar. Nullam laoreet ligula sed odio dignissim congue. Integer viverra urna tortor, et porttitor felis mattis quis. Etiam interdum risus ut lectus aliquam pellentesque. Curabitur congue nulla neque, vitae congue nulla facilisis in. Mauris elementum lacus et venenatis malesuada. In volutpat malesuada dui, id convallis nibh dictum et.',
+      url: 'http://res.cloudinary.com/dlrfbhutw/image/upload/v1511842017/Testimonials/cviurzx57jkmgz6ngwbe.jpg'
+    },
+    pick2: {
+      fullName: 'Nikhil Venkatesh',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id fermentum leo. Pellentesque et suscipit nisi. Sed eu felis quis urna pellentesque pulvinar. Nullam laoreet ligula sed odio dignissim congue. Integer viverra urna tortor, et porttitor felis mattis quis. Etiam interdum risus ut lectus aliquam pellentesque. Curabitur congue nulla neque, vitae congue nulla facilisis in. Mauris elementum lacus et venenatis malesuada. In volutpat malesuada dui, id convallis nibh dictum et.',
+      url: 'http://res.cloudinary.com/dlrfbhutw/image/upload/v1511842363/Testimonials/ajx6bbydggebvoweyrml.jpg'
+    },
+    pick3: {
+      fullName: 'David Stolear',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id fermentum leo. Pellentesque et suscipit nisi. Sed eu felis quis urna pellentesque pulvinar. Nullam laoreet ligula sed odio dignissim congue. Integer viverra urna tortor, et porttitor felis mattis quis. Etiam interdum risus ut lectus aliquam pellentesque. Curabitur congue nulla neque, vitae congue nulla facilisis in. Mauris elementum lacus et venenatis malesuada. In volutpat malesuada dui, id convallis nibh dictum et.',
+      url: 'http://res.cloudinary.com/dlrfbhutw/image/upload/v1511842017/Testimonials/cviurzx57jkmgz6ngwbe.jpg'
+    },
+    pick4: {
+      fullName: 'Jeff Zou',
+      text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis id fermentum leo. Pellentesque et suscipit nisi. Sed eu felis quis urna pellentesque pulvinar. Nullam laoreet ligula sed odio dignissim congue. Integer viverra urna tortor, et porttitor felis mattis quis. Etiam interdum risus ut lectus aliquam pellentesque. Curabitur congue nulla neque, vitae congue nulla facilisis in. Mauris elementum lacus et venenatis malesuada. In volutpat malesuada dui, id convallis nibh dictum et.',
+      url: 'http://res.cloudinary.com/dlrfbhutw/image/upload/v1511842363/Testimonials/ajx6bbydggebvoweyrml.jpg'
+    }
+  });
+
+  exChosen.save(function (err) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     }
 
-    res.json(user);
+    res.json(exChosen);
   });
 };
 
