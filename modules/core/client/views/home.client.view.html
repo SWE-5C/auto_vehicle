@@ -1,5 +1,5 @@
 <DOCTYPE html>
-<section ng-controller="HomeController">
+<section ng-controller="HomeController" ng-init="periodicCalling($event)">
     <header class="masthead">
         <div class="header-content">
           <div class="header-content-inner">
@@ -11,12 +11,14 @@
 <!--MAP TESTING STARTS HERE       ///////////////////////////////////////////////////  -->
 <style>
        #map {
-        height: 400px;
+        text-align: left;
+        min-height: 500px;
         width: 100%;
        }
 </style>
 <!--MAP TESTING ENDS HERE       ///////////////////////////////////////////////////  -->
 </header>
+  <div id="map" ng-init="testEvent($event)"></div>
 
 <!--div id="map" style="height: 400px; width: 100%;"></div-->
 
@@ -70,57 +72,10 @@
             </div>
       </div>
 
-      <div id="mapper">
-        <div class="container">
-          <div class="row">
-            <div class="text-center">
-              <h1>
-                  Track the cars!
-                  <div id="map"></div>
-              </h1>
 
-            </div>
-          </div>
-          <div class="row">
-            <div class="text-center">
 
-              <!--p>
-                <iframe src="//www.google.com/maps/embed/v1/place?q=UniversityofFlorida,Gainesville%20Rd,%20UK
-                &zoom=12
-                &key=AIzaSyA9kHJlfEoiPIf0Zfv6LXMSjjJxrpJinOQ">
-                </iframe>
-              </p-->
-              <table style="width:100%">
-                <tr>
-                  <th>bus</th>
-                  <th>latitude</th>
-                  <th>longitude</th>
-                </tr>
-                <tr>
-                  <td>0</td>
-                  <td>{{sample[0].location.lat}}</td>
-                  <td>{{sample[0].location.lng}}</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>{{sample[1].location.lat}}</td>
-                  <td>{{sample[1].location.lng}}</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>{{sample[2].location.lat}}</td>
-                  <td>{{sample[2].location.lng}}</td>
-                </tr>
-              </table>
-
-              <!--  ajax goes here 116 4001214 -->
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- The map used to go here -->
       <div id="bottom">
-      <div class="text-center">made with < 3 by Group 5c </div>
       <br>
       <div class="text-center">
           <a class="twitter-timeline" data-width="500" data-height="500" data-theme="dark" data-link-color="#19CF86" href="https://twitter.com/autonomouscarr?lang=en">A Twitter List by TwitterDev</a>

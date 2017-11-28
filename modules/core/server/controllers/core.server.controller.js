@@ -50,7 +50,6 @@ exports.testtransloc = function (req, res) {
   .end(function (result) {
     //console.log(result.body.data['116'][1].location);
 //    console.log(result.body);
-    //console.log("\nthis has been called");
     res.json(result.body.data['116']);
   });
 
