@@ -23,8 +23,21 @@ var TestimonialSchema = new Schema({
   picture: {
     type: String,
     trim: true,
-    default: ''
+    default: 'modules/users/client/img/profile/default.png'
+  },
+  created_at: Date,
+  updated_at: Date
+});
+
+TestimonialSchema.pre('save', function(next){
+  var currentTime = new Date;
+  this.updated_at = currentTime;
+  if(!this.created_at)
+  {
+    this.created_at = currentTime;
   }
+  next();
 });
 
 mongoose.model('Testimonial', TestimonialSchema);
+

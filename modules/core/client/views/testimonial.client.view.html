@@ -1,56 +1,27 @@
-<div class="row" ng-controller="UploadFileController as upload" ng-init="example()">
+<div class="row" ng-controller="UploadTestimonialController as upload" ng-init="uploadWidget()">
   <div class="col-md-offset-1 col-md-10 formWrapper">
     <div class="page-header">
       <h3>Submit a Testimonial</h3><br>
-      <!--
-        Validation of forms is important to ensure that a user submits the correct information. Angular provides
-        some useful APIs for validating forms. Documentation can be found here:
-          https://docs.angularjs.org/guide/forms
-        We use the ng-submit directive to create a new experience. The controller's create() function checks the validity of the form and sends any errors in the form of a call to $broadcast. Bootstrap also provides
-        conveience methods for displaying these error messages to the user. If you're not quite sure what this code is doing, take a look at this link:
-          https://github.com/paulyoder/angular-bootstrap-show-errors
-       -->
-      <form name="Form" class="form-horizontal" ng-submit="create(experienceForm.$valid)">
+
+      <form name="userForm" ng-submit="submit(userForm.$valid)" class="submit" novalidate autocomplete="off">
         <fieldset>
           <div class="form-group" show-errors>
             <label for="name">Name</label>
-            <input name="name" type="text" ng-model="firstName" id="name" class="form-control" placeholder="Name" required>
-            <!--<div ng-messages="experienceForm.name.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Name is Optional</p>
-            </div> -->
-          </div>
-          <br>
-
-        <!--
-          <div class="form-group" show-errors>
-            <label for="code">Bus Number:</label>
-
-            <input name="code" type="text" ng-model="code" id="code" class="form-control" placeholder="Code" required>
-          <div ng-messages="experienceForm.code.$error" role="alert">
-              <p class="help-block error-text" ng-message="required">Bus Number is optional</p>
+            <input type="text" id="name" name="name" class="form-control" ng-model="form.fullName" placeholder="Name" required>
+            <div ng-messages="userForm.name.$error" role="alert">
+              <p class="help-block error-text" ng-message="required">Name is required.</p>
             </div>
           </div>
-          -->
-
-
-
-
-          <!--
-          <div class="form-group">
-            <label for="address">Address</label>
-            <input name="address" type="text" ng-model="address" id="address" class="form-control" placeholder="Address">
+          <div class="form-group" show-errors>
+            <label for="testimonialText">Testimonial</label>
+            <textarea id="testimonialText" name="testimonialText" class="form-control" rows="5" ng-model="form.testimonial" placeholder="Testimonial" required></textarea>
+            <div ng-messages="userForm.testimonialText.$error" role="alert">
+              <p class="help-block error-text" ng-message="required" >Testimonial is required.</p>
+            </div>
           </div>
-          -->
 
-          <div class="form-group">
-            <label for="exampleTextarea">Enter Testimonial Below:</label>
-            <br>
-            <textarea class="form-control" id="exampleTextarea" placeholder="Testimonial text..." rows="5" required></textarea>
+            <button type="button" id="upload_widget_opener">Upload multiple images</button>
 
-
-          <br>
-
-          <button id="upload_widget_opener">Upload multiple images</button>
         <br>
 		<br>
             <input type="submit" class="btn btn-default">
