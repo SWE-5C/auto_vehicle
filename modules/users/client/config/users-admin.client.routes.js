@@ -38,6 +38,11 @@ angular.module('users.admin.routes').config(['$stateProvider',
           }]
         }
       })
+      .state('admin.testimonial', {
+        url: '/testimonials/:testimonialId',
+        templateUrl: 'modules/users/client/views/admin/view-testimonial.client.view.html',
+        controller: 'TestimonialController'
+      })
       .state('admin.user-edit', {
         url: '/users/:userId/edit',
         templateUrl: 'modules/users/client/views/admin/edit-user.client.view.html',
