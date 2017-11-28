@@ -23,3 +23,4 @@ angular.module('users.admin').factory('Admin', ['$resource',
     });
   }
 ]);
+

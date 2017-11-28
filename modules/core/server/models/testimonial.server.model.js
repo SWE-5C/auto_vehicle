@@ -41,3 +41,8 @@ TestimonialSchema.pre('save', function(next){
 
 mongoose.model('Testimonial', TestimonialSchema);
 
+var Testimonial = mongoose.model('Testimonial', TestimonialSchema);
+
+/* Export the model to make it avaiable to other parts of your Node application */
+module.exports = Testimonial;
+
