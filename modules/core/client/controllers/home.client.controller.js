@@ -1,12 +1,20 @@
 'use strict';
 
-(function(){
-
 angular.module('core')
 .controller('HomeController', ['$scope', 'Authentication', '$http',
       function ($scope, Authentication, $http, NgMap) {
         // This provides Authentication context.
         $scope.authentication = Authentication;
+        
+        $scope.grabTestimonials = function initTestimonials() {
+          $http.get('/api/picks')
+            .then(function (res) {
+                $scope.picks = res.data;
+              }, function (err) {
+                console.log(err);
+              }
+            );
+        };
 
 		$scope.periodicCalling = function() { return $http.get('/test').then(function(response) {
 	        $scope.sample = response.data;
@@ -80,10 +88,6 @@ angular.module('core')
         initMap();
       }
 
-
-
-
-
       window.twttr = (function(d, s, id) {
 	  var js, fjs = d.getElementsByTagName(s)[0],
 	    t = window.twttr || {};
@@ -107,4 +111,3 @@ angular.module('core')
 
       }
 ]);
-})();

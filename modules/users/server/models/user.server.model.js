@@ -27,6 +27,20 @@ var validateLocalStrategyEmail = function (email) {
 /**
  * User Schema
  */
+var CarsSchema = new Schema({
+  vehicle1: {
+    type: String,
+    trim: true
+  },
+  vehicle2: {
+    type: String,
+    trim: true
+  },
+  vehicle3: {
+    type: String,
+    trim: true
+  }
+});
 var UserSchema = new Schema({
   firstName: {
     type: String,
@@ -177,7 +191,7 @@ UserSchema.statics.generateRandomPassphrase = function () {
     var password = '';
     var repeatingCharacters = new RegExp('(.)\\1{2,}', 'g');
 
-    // iterate until the we have a valid passphrase. 
+    // iterate until the we have a valid passphrase.
     // NOTE: Should rarely iterate more than once, but we need this to ensure no repeating characters are present.
     while (password.length < 20 || repeatingCharacters.test(password)) {
       // build the random password

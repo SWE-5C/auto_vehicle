@@ -26,8 +26,8 @@
     function compileDirective(template) {
       // function to compile a fresh directive with the given template, or a default one
       // input form with directive
-      if (!template) template = '<input type="password" id="newPassword" name="newPassword" class="form-control" ng-model="passwordMock.newPassword" placeholder="New Password" autocomplete="new-password" popover="{{popoverMsg}}" popover-trigger="focus" popover-placement="top" password-validator required>' +
-        '<input type="password" id="verifyPassword" name="verifyPassword" class="form-control" ng-model="passwordMock.verifyPassword" placeholder="Verify Password" password-verify="passwordMock.newPassword" required>';
+      if (!template) template = '<input type="password" id="newPassword" name="newPassword" class="form-control" ng-models="passwordMock.newPassword" placeholder="New Password" autocomplete="new-password" popover="{{popoverMsg}}" popover-trigger="focus" popover-placement="top" password-validator required>' +
+        '<input type="password" id="verifyPassword" name="verifyPassword" class="form-control" ng-models="passwordMock.verifyPassword" placeholder="Verify Password" password-verify="passwordMock.newPassword" required>';
       template = '<form name="form"><div>' + template + '<input type="submit">submit form</input></div></form>';
 
       // inject allows you to use AngularJS dependency injection
