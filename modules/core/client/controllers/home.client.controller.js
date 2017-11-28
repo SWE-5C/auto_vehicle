@@ -23,23 +23,26 @@ angular.module('core')
 		  var center = {lat: 29.643971, lng: -82.358410};
 		  var vehicle_1 = {lat: 29.643979, lng: -82.358415};
 		  var map = new google.maps.Map(document.getElementById('map'), {
-		    zoom: 13,
+		    zoom: 14,
 		    center: center
 		  });
 
 		  var marker = new google.maps.Marker({
 		    position: center,
-		    map: map
+		    map: map,
+        label: '1'
 		  });
 
       var markerTwo = new google.maps.Marker({
 		    position: center,
-		    map: map
+		    map: map,
+        label: '2'
 		  });
 
       var markerThree = new google.maps.Marker({
 		    position: center,
-		    map: map
+		    map: map,
+        label: '3'
 		  });
 
 
@@ -81,25 +84,25 @@ angular.module('core')
 
 
 
-    //   window.twttr = (function(d, s, id) {
-	  // var js, fjs = d.getElementsByTagName(s)[0],
-	  //   t = window.twttr || {};
-	  // if (d.getElementById(id)) return t;
-	  // js = d.createElement(s);
-	  // js.id = id;
-	  // js.src = "https://platform.twitter.com/widgets.js";
-	  // fjs.parentNode.insertBefore(js, fjs);
-    //
-	  // t._e = [];
-	  // t.ready = function(f) {
-	  //   t._e.push(f);
-	  // };
-    //
-	  // return t;
-	  // }(document, "script", "twitter-wjs"));
-    //
-    //
-	  // twttr.widgets.load();
+      window.twttr = (function(d, s, id) {
+	  var js, fjs = d.getElementsByTagName(s)[0],
+	    t = window.twttr || {};
+	  if (d.getElementById(id)) return t;
+	  js = d.createElement(s);
+	  js.id = id;
+	  js.src = "https://platform.twitter.com/widgets.js";
+	  fjs.parentNode.insertBefore(js, fjs);
+
+	  t._e = [];
+	  t.ready = function(f) {
+	    t._e.push(f);
+	  };
+
+	  return t;
+	  }(document, "script", "twitter-wjs"));
+
+
+	  twttr.widgets.load();
 
 
       }
