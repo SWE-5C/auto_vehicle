@@ -18,6 +18,13 @@ exports.read = function (req, res) {
 };
 
 /**
+ * Show the current testimonials
+ */
+exports.readTest = function (req, res) {
+  res.json(req.testimonial);
+};
+
+/**
  * Update a User
  */
 exports.update = function (req, res) {
@@ -86,6 +93,28 @@ exports.listTestimonials = function (req, res) {
   });
 };
 
+exports.listingByID = function(req, res, next, id) {
+  Testimonial.findById(id).exec(function(err, testimonial) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.testimonial = testimonial;
+      next();
+    }
+  });
+};
+
+exports.pickByID = function(req, res, next, id) {
+  Pick.findById(id).exec(function(err, pick) {
+    if(err) {
+      res.status(400).send(err);
+    } else {
+      req.pick = pick;
+      next();
+    }
+  });
+};
+
 /**
  * List of Picks of testimonials
  */
@@ -98,6 +127,45 @@ exports.listPicks = function (req, res) {
     }
     res.json(picks);
   });
+};
+
+/**
+ * Update Picks
+ */
+exports.updatePicks = function (req, res) {
+  var pick = new Pick(req.body);
+  //pick = req.pick.body;
+  //console.log(pick);
+
+  // pick.pick1.fullName = req.pick1.fullName;
+  // // pick.lastName = req.body.lastName;
+  // // pick.displayName = user.firstName + ' ' + user.lastName;
+  // // pick.roles = req.body.roles;
+
+  pick.save(function (err) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+
+    res.json(pick);
+  });
+};
+
+/* Delete a listing */
+exports.deletePick = function(req, res) {
+  var pick = req.pick;
+
+  /* Remove the article */
+  pick.remove(function(err) {
+    if(err) {
+      res.status(400).send(err);
+    }
+    else {
+      res.end();
+    }
+  })
 };
 
 /**
