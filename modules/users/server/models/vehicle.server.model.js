@@ -27,4 +27,4 @@ var VehicleSchema = new Schema({
   }
 });
 
-mongoose.model('Testimonial', TestimonialSchema);
+mongoose.model('VehicleID', VehicleSchema);
