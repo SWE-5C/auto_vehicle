@@ -121,6 +121,8 @@ hr {
 }
 
 #about {
+  display: block;
+  clear: both;
   background-color: #EA832E;
 }
 
