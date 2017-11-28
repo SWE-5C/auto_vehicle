@@ -11,11 +11,7 @@ angular.module('users.admin').controller('UserExperienceController', ['$scope', 
       }
     );
 
-    $scope.showImage = function(src, width, height, alt){
-      var img = document.createElement("img");
-      img.src = src;
-      img.height = height;
-      img.width = width;
+    $scope.showImage = function(img){
     }
 
     $scope.buildPager = function () {

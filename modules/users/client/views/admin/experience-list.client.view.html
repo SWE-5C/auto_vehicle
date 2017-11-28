@@ -21,13 +21,13 @@
 
     <accordion-group id="hello" ng-repeat="testimonial in testimonials" is-open="status.open" >
       <accordion-heading>
-        <table ng-click="showImage(testimonial.picture)">
+        <table>
           <tbody>
             <tr class="tableClass">
               <td class="col-md-4">{{testimonial.fullName}}</td>
               <td class="col-md-4">{{testimonial.testimonial}}</td>
               <td class="col-md-2"></td>
-              <td class = "col-md-4">{{testimonial.created_at}}</td>
+              <td class = "col-md-4"><img style="height:100px; width:auto;" class="list-group-item-text pull-right small" ng-src="{{testimonial.picture}}"> </img></td>
             </tr>
           </tbody>
 
