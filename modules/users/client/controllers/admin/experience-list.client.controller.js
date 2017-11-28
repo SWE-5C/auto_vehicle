@@ -1,11 +1,15 @@
 'use strict';
 
-angular.module('users.admin').controller('UserExperienceController', ['$scope', '$filter', 'Admin', '$http', 'Testimonial',
-  function ($scope, $filter, Admin, $http, Testimonial) {
+angular.module('users.admin').controller('UserExperienceController', ['$scope', '$filter', 'Admin', '$http',
+  function ($scope, $filter, Admin, $http) {
 
-  $http.get('/api/testimonials').success(function (req, res) {
-      $scope.testimonials = res;
-    });
+  $http.get('/api/testimonials')
+    .then(function (res) {
+      $scope.testimonials = res.data;
+    },function (err) {
+      console.log(err);
+      }
+    );
 
     $scope.buildPager = function () {
       $scope.pagedItems = [];
