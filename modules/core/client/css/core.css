@@ -13,6 +13,29 @@
 .x-ng-cloak {
   display: none !important;
 }
+
+#navbar{
+  background-color: #00b3ee;
+  width: 100%;
+}
+
+.navbar .navbar-brand{
+  color: #ffffff;
+}
+
+.navbar-collapse .navbar-nav > li > a {
+  color: #ffffff;
+}
+
+.navbar-default .navbar-nav > .active{
+  background: #F9B63C;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+  background: #F9B63C;
+}
+
 .header-profile-image {
   opacity: 0.8;
   height: 28px;

@@ -6,6 +6,7 @@
 var path = require('path'),
   mongoose = require('mongoose'),
   User = mongoose.model('User'),
+  Testimonial = mongoose.model('Testimonial'),
   errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 
 /**
@@ -67,6 +68,20 @@ exports.list = function (req, res) {
     }
 
     res.json(users);
+  });
+};
+
+/**
+ * List of Testimonials
+ */
+exports.listTestimonials = function (req, res) {
+  Testimonial.find().exec(function (err, testimonials) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    res.json(testimonials);
   });
 };
 

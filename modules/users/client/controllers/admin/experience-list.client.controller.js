@@ -1,10 +1,10 @@
 'use strict';
 
-angular.module('users.admin').controller('UserListController', ['$scope', '$filter', 'Admin', 'Testimonial',
-  function ($scope, $filter, Admin, Testimonial) {
-    Admin.query(function (data) {
-      $scope.users = data;
-      $scope.buildPager();
+angular.module('users.admin').controller('UserExperienceController', ['$scope', '$filter', 'Admin', '$http', 'Testimonial',
+  function ($scope, $filter, Admin, $http, Testimonial) {
+
+  $http.get('/api/testimonials').success(function (req, res) {
+      $scope.testimonials = res;
     });
 
     $scope.buildPager = function () {
@@ -26,6 +26,6 @@ angular.module('users.admin').controller('UserListController', ['$scope', '$filt
 
     $scope.pageChanged = function () {
       $scope.figureOutItemsToDisplay();
-    };
+    }
   }
 ]);
