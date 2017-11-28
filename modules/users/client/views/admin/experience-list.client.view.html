@@ -9,13 +9,34 @@
       <!--</div>-->
     </div>
   </div>
-  <div class="list-group">
+
+  <!--<div class="list-group">
     <a ng-repeat="testimonial in testimonials" class="list-group-item">
       <h4 class="list-group-item-heading" ng-bind="testimonial.fullName"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="testimonial.testimonial"></p>
-      <p class="list-group-item-text" ng-bind="testimonial.picture"></p>
+      <img style="height:100px; width:auto;" class="list-group-item-text pull-right small" ng-src="{{testimonial.picture}}"> </img>
+      <p class="list-group-item-text" ng-bind="testimonial.testimonial"></p>
     </a>
-  </div>
+  </div>-->
+  <accordion close-others="oneAtATime">
+
+    <accordion-group id="hello" ng-repeat="testimonial in testimonials" is-open="status.open" >
+      <accordion-heading>
+        <table ng-click="showImage(testimonial.picture)">
+          <tbody>
+            <tr class="tableClass">
+              <td class="col-md-4">{{testimonial.fullName}}</td>
+              <td class="col-md-4">{{testimonial.testimonial}}</td>
+              <td class="col-md-2"></td>
+              <td class = "col-md-4">{{testimonial.created_at}}</td>
+            </tr>
+          </tbody>
+
+        </table>
+      </accordion-heading>
+      <div ng-include="'modules/advisorhomepages/client/views/advisorForm.html'"></div>
+
+    </accordion-group>
+  </accordion>
 
   <pagination boundary-links="true" max-size="8" items-per-page="itemsPerPage" total-items="filterLength" ng-model="currentPage" ng-change="pageChanged()"></pagination>
 </section>

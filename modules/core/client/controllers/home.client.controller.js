@@ -5,7 +5,6 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         // This provides Authentication context.
         $scope.authentication = Authentication;
 
-
         $scope.grabTestimonials = function initTestimonials() {
           $http.get('/api/picks')
             .then(function (res) {
