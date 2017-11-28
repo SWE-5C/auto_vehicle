@@ -1,6 +1,6 @@
 <DOCTYPE html>
-<section ng-controller="HomeController">
 
+<section ng-controller="HomeController" ng-init="periodicCalling($event)">
     <header class="masthead">
         <div class="header-content">
           <div class="header-content-inner">
@@ -12,12 +12,14 @@
 <!--MAP TESTING STARTS HERE       ///////////////////////////////////////////////////  -->
 <style>
        #map {
-        height: 400px;
+        text-align: left;
+        min-height: 500px;
         width: 100%;
        }
 </style>
 <!--MAP TESTING ENDS HERE       ///////////////////////////////////////////////////  -->
 </header>
+  <div id="map" ng-init="testEvent($event)"></div>
 
 <!--div id="map" style="height: 400px; width: 100%;"></div-->
 
@@ -43,34 +45,30 @@ max-height:100%;">
 
         </div>
       <div id="testimonials">
-            <div class="container">
+            <div class="container" ng-init="grabTestimonials()">
 
 
               <div class="slider">
-                <!--<input type="radio" name="slider" title="slide1" checked="checked" class="slider__nav"/>-->
-                <!--<input type="radio" name="slider" title="slide2" class="slider__nav"/>-->
-                <!--<input type="radio" name="slider" title="slide3" class="slider__nav"/>-->
-                <!--<input type="radio" name="slider" title="slide4" class="slider__nav"/>-->
                 <div class="slider__inner">
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Todd</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick1.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick1.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick1.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src="http://static2.businessinsider.com/image/5899ffcf6e09a897008b5c04-1200/.jpg" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Spencer</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick2.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick2.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick2.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa  "></i>
-                    <img class="slider__image" src="https://odesk-blog-content.s3.amazonaws.com/uploads/2014/10/02123010/profile-photo_friendly.jpg" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Larry</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick3.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick3.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick3.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src="http://events.leagueofblackwomen.org/wp-content/uploads/2015/07/Thumbsupblackwoman.jpg" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Diamond</h2>
-                    <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
+                    <img class="slider__image" src={{picks[0].pick4.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                    <h2 class="slider__caption">{{picks[0].pick4.fullName}}</h2>
+                    <p class="slider__txt">{{picks[0].pick4.text}}</p>
                   </div>
                 </div>
               </div>
@@ -80,57 +78,10 @@ max-height:100%;">
             </div>
       </div>
 
-      <div id="mapper">
-        <div class="container">
-          <div class="row">
-            <div class="text-center">
-              <h1>
-                  Track the cars!
-                  <div id="map"></div>
-              </h1>
 
-            </div>
-          </div>
-          <div class="row">
-            <div class="text-center">
 
-              <!--p>
-                <iframe src="//www.google.com/maps/embed/v1/place?q=UniversityofFlorida,Gainesville%20Rd,%20UK
-                &zoom=12
-                &key=AIzaSyA9kHJlfEoiPIf0Zfv6LXMSjjJxrpJinOQ">
-                </iframe>
-              </p-->
-              <table style="width:100%">
-                <tr>
-                  <th>bus</th>
-                  <th>latitude</th>
-                  <th>longitude</th>
-                </tr>
-                <tr>
-                  <td>0</td>
-                  <td>{{sample[0].location.lat}}</td>
-                  <td>{{sample[0].location.lng}}</td>
-                </tr>
-                <tr>
-                  <td>1</td>
-                  <td>{{sample[1].location.lat}}</td>
-                  <td>{{sample[1].location.lng}}</td>
-                </tr>
-                <tr>
-                  <td>2</td>
-                  <td>{{sample[2].location.lat}}</td>
-                  <td>{{sample[2].location.lng}}</td>
-                </tr>
-              </table>
-
-              <!--  ajax goes here 116 4001214 -->
-              </p>
-            </div>
-          </div>
-        </div>
-      </div>
+      <!-- The map used to go here -->
       <div id="bottom">
-      <div class="text-center">made with < 3 by Group 5c </div>
       <br>
       <div class="text-center">
           <a class="twitter-timeline" data-width="500" data-height="500" data-theme="dark" data-link-color="#19CF86" href="https://twitter.com/autonomouscarr?lang=en">A Twitter List by TwitterDev</a>

@@ -18,6 +18,12 @@ module.exports = function (app) {
   app.route('/api/testimonials')
     .get(admin.listTestimonials);
 
+  app.route('/api/picks')
+    .get(admin.listPicks);
+
+  app.route('/api/testPicks')
+    .get(admin.saveTest);
+
   // Single user routes
   app.route('/api/users/:userId')
     .get(adminPolicy.isAllowed, admin.read)

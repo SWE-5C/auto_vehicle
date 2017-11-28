@@ -4,8 +4,6 @@
 //     Testimonial = require('../../../core/server/models/testimonial.server.model'),
 //     errorHandler = require(path.resolve('./modules/core/server/controllers/errors.server.controller'));
 //
-//
-//
 //   /* Instantiate a Listing */
 //   var testimonial = new Testimonial(req.body);
 //
