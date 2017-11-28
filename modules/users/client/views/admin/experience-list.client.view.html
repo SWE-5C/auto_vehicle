@@ -4,19 +4,9 @@
       <div class="col-md-4">
         <h1>Testimonials</h1>
       </div>
-      <!--<div class="col-md-4" style="margin-top: 2em">-->
-        <!--<input class="form-control col-md-4" type="text" ng-model="search" placeholder="Search" ng-change="figureOutItemsToDisplay()" />-->
-      <!--</div>-->
     </div>
   </div>
 
-  <!--<div class="list-group">
-    <a ng-repeat="testimonial in testimonials" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="testimonial.fullName"></h4>
-      <img style="height:100px; width:auto;" class="list-group-item-text pull-right small" ng-src="{{testimonial.picture}}"> </img>
-      <p class="list-group-item-text" ng-bind="testimonial.testimonial"></p>
-    </a>
-  </div>-->
   <accordion close-others="oneAtATime">
 
     <accordion-group id="hello" ng-repeat="testimonial in testimonials" ui-sref="admin.testimonial({ testimonialId: testimonial._id })" is-open="status.open" >
@@ -33,7 +23,6 @@
 
         </table>
       </accordion-heading>
-      <div ng-include="'modules/advisorhomepages/client/views/advisorForm.html'"></div>
 
     </accordion-group>
   </accordion>
