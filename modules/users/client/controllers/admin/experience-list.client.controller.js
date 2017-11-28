@@ -1,23 +1,35 @@
 'use strict';
 
-angular.module('users').controller('UserExperienceController', ['$scope', 'Testimonials',
-  function($scope, Testimonials) {
-    /* Get all the listings, then bind it to the scope */
-    Testimonials.getAll().then(function(response) {
-      $scope.testimonials = response.data;
-    }, function(error) {
-      console.log('Unable to retrieve testimonials:', error);
-    });
-    // $scope.detailedInfo = undefined;
-    // $scope.addListing = function() {
-    //   $scope.listings.push($scope.newListing);
-    //   $scope.newListing = {};
-    // };
-    // $scope.deleteListing = function(index) {
-    //   $scope.listings.splice(index, 1);
-    // };
-    // $scope.showDetails = function(index) {
-    //   $scope.detailedInfo = $scope.listings[index];
-    // };
+angular.module('users.admin').controller('UserExperienceController', ['$scope', '$filter', 'Admin', '$http',
+  function ($scope, $filter, Admin, $http) {
+
+  $http.get('/api/testimonials')
+    .then(function (res) {
+      $scope.testimonials = res.data;
+    },function (err) {
+      console.log(err);
+      }
+    );
+
+    $scope.buildPager = function () {
+      $scope.pagedItems = [];
+      $scope.itemsPerPage = 15;
+      $scope.currentPage = 1;
+      $scope.figureOutItemsToDisplay();
+    };
+
+    $scope.figureOutItemsToDisplay = function () {
+      $scope.filteredItems = $filter('filter')($scope.users, {
+        $: $scope.search
+      });
+      $scope.filterLength = $scope.filteredItems.length;
+      var begin = (($scope.currentPage - 1) * $scope.itemsPerPage);
+      var end = begin + $scope.itemsPerPage;
+      $scope.pagedItems = $scope.filteredItems.slice(begin, end);
+    };
+
+    $scope.pageChanged = function () {
+      $scope.figureOutItemsToDisplay();
+    }
   }
 ]);
