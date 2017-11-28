@@ -48,7 +48,7 @@ exports.testtransloc = function (req, res) {
   .header("X-Mashape-Key", "gkw2IczalYmshkzU3pZ8HfBvxWovp1KyxDOjsnIs9UF1JzRdgX")
   .header("Accept", "application/json")
   .end(function (result) {
-    console.log(result.body.data['116'][1].location);
+ //   console.log(result.body.data['116'][1].location);
 //    console.log(result.body);
     res.json(result.body.data['116']);
   });
