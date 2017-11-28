@@ -86,6 +86,21 @@ exports.listTestimonials = function (req, res) {
 };
 
 /**
+ * List of Picks of testimonials
+ */
+exports.listPicks = function (req, res) {
+  Chosen.find().exec(function (err, picks) {
+    if (err) {
+      return res.status(400).send({
+        message: errorHandler.getErrorMessage(err)
+      });
+    }
+    res.json(picks);
+  });
+};
+
+
+/**
  * User middleware
  */
 exports.userByID = function (req, res, next, id) {
