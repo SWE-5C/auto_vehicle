@@ -1,4 +1,5 @@
 <DOCTYPE html>
+
 <section ng-controller="HomeController" ng-init="periodicCalling($event)">
     <header class="masthead">
         <div class="header-content">
@@ -24,9 +25,14 @@
 
       <div id="about">
             <div class="container">
-            <div class="row">
-              <div class="col-xs-6 text-center"><br><br><img src="http://www.transportation.institute.ufl.edu/wp-content/uploads/2017/08/i-street-banner-1-1024x315.jpg" style="width:400px;height:150px;"></div>
-              <div class="col-xs-6">
+            <div class="row" >
+              <div class="col-xs-6 text-center" style="width: 60%; height:40%; overflow:hidden"><br><br>
+
+              <div ><img src="http://www.transportation.institute.ufl.edu/wp-content/uploads/2017/08/i-street-banner-1-1024x315.jpg" style="max-width:100%;
+max-height:100%;">
+              </div>
+              </div>
+              <div class="col-xs-6" style="width: 60%, padding-left: 50px; overflow: hidden;">
                 <hr>
                 <h1 class="text-center">About</h1>
                 <p>
@@ -50,17 +56,17 @@
                     <p class="slider__txt">{{picks[0].pick1.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src={{picks[0].pick2.url}} alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
+                    <img class="slider__image" src={{picks[0].pick2.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
                     <h2 class="slider__caption">{{picks[0].pick2.fullName}}</h2>
                     <p class="slider__txt">{{picks[0].pick2.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa  "></i>
-                    <img class="slider__image" src={{picks[0].pick3.url}} alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
+                    <img class="slider__image" src={{picks[0].pick3.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
                     <h2 class="slider__caption">{{picks[0].pick3.fullName}}</h2>
                     <p class="slider__txt">{{picks[0].pick3.text}}</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
-                    <img class="slider__image" src={{picks[0].pick4.url}} alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
+                    <img class="slider__image" src={{picks[0].pick4.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
                     <h2 class="slider__caption">{{picks[0].pick4.fullName}}</h2>
                     <p class="slider__txt">{{picks[0].pick4.text}}</p>
                   </div>
@@ -80,43 +86,56 @@
       <div class="text-center">
           <a class="twitter-timeline" data-width="500" data-height="500" data-theme="dark" data-link-color="#19CF86" href="https://twitter.com/autonomouscarr?lang=en">A Twitter List by TwitterDev</a>
       </div>
-<footer role="contentinfo" style="background-color:beige;">
 
-  <div id="institutional-footer">
-    <div class="container">
-      <div id="footer_container" style="display:-webkit-inline-box;">
-        <div class="span-7 alpha">
-          <h2>Contact</h2>
-          <address>
-          <p>University of Florida Transportation Institute<br />512 Weil Hall<br />P.O. Box PO Box 116580<br />Gainesville, FL 32611-6580<br /><p><a href="mailto:UFTI@eng.ufl.edu">UFTI@eng.ufl.edu</a><br /><a id="contact-webmaster" href="mailto:elaine.khoo@essie.ufl.edu">Contact webmaster</a>          </address>
+    
+<!--Footer-->
+
+<footer id="myFooter">
+        <div class="container">
+            <div class="row" style="padding-left: 20%">
+
+                <div class="col-sm-3">
+                    <h5>About Us</h5>
+                    <ul>
+                        <li>University of Florida Transportation Institute</li>
+                        <li>Company Information</li>
+                        <li>512 Weil Hall</li>
+                        <li>P.O. Box PO Box 116580</li>
+                        <li>Gainesville, FL 32611-6580</li>
+                    </ul>
+                </div>
+                <div class="col-sm-3">
+                    <h5>Contact Us</h5>
+                    <ul>
+                        <li><a href="#">UFTI@eng.ufl.edu</a></li>
+                        <li><a href="mailto:elaine.khoo@essie.ufl.edu">Contact webmaster</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="col-sm-3">
+                    <h5>Legal</h5>
+                    <ul>
+                        <li>This page uses <a href="http://www.google.com/analytics/">Google Analytics</a></li>
+
+                                                <li>© 2017 University of Florida</li>
+                    </ul>
+                </div>
+                
+            </div>
+
+        </div>
+        <div class="social-networks">
+            <a href="https://twitter.com/_UFTI" class="twitter"><i class="fa fa-twitter"></i></a>
+            <a href="https://www.facebook.com/UFTransportation/" class="facebook"><i class="fa fa-facebook"></i></a>
+            <a href="https://www.youtube.com/channel/UCWEOIBqjKAUG5ZCPQ1fQO9A/videos" class="youtube"><i class="fa fa-youtube"></i></a>
+            <a href="https://www.linkedin.com/groups/6748369" class="linkedin"><i class="fa fa-linkedin"></i></a>
         </div>
 
-        <div class="footer-links span-5 omega" style="padding-left: 8%;">
-          <h2>Connect</h2>
-          <ul class="social">
-            <li><a href="https://www.facebook.com/UFTransportation/" title="Facebook" class="facebook ir">Facebook</a></li>
-            <li><a href="https://twitter.com/_UFTI" title="Twitter" class="twitter ir">Twitter</a></li>
-            <li><a href="https://www.youtube.com/channel/UCWEOIBqjKAUG5ZCPQ1fQO9A/videos" title="Youtube" class="youtube ir">Youtube</a></li>
-            <li><a href="https://www.linkedin.com/groups/6748369" title="LinkedIn" class="linkedin ir">LinkedIn</a></li>
-          </ul>
-        </div>
-        <div class="container" style="padding-top: 2%; padding-left: 15%;">
-          <a href="http://www.ufl.edu/" class="uf-logo ir">University of Florida</a>
-          <ul>
-            <li>&copy; 2017 <a href="http://www.ufl.edu/">University of Florida</a></li>
-             <li>Page Updated September 13, 2017</li>       </ul>
-          <ul>
-            <li>This page uses <a href="http://www.google.com/analytics/">Google Analytics</a> <a href="http://www.google.com/intl/en_ALL/privacypolicy.html">(Google Privacy Policy)</a></li>
-            <li><a href="http://assistive.usablenet.com/tt/http://www.transportation.institute.ufl.edu/research-2/research/autonomous-connected-vehicles-2/" accesskey="t" title="Text-only version of this website">Text-only Version</a></li>
-            <li><a href="http://www.ufl.edu/disability/">Disability Services</a></li>
-            <li><a href="http://privacy.ufl.edu/privacystatement.html">Privacy Policy</a></li>
-            <li><a href="http://regulations.ufl.edu/">Regulations</a></li>
-          </ul>
-        </div><!-- /container -->
-      </div> <!-- /footer-container -->
-    </div> <!-- /container -->
-    <div class="footer-bottom">
-    </div> <!-- /footer-bottom -->
-  </div><!-- end institutional footer container -->
-</footer>
+
+<!--         <div class="footer-copyright">
+            <p>© 2016 Copyright Text </p>
+        </div> -->
+    </footer>
+    
 </section>
