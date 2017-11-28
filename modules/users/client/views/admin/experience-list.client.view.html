@@ -1,4 +1,4 @@
-<section ng-controller="UserExperienceController">
+<section>
   <div class="page-header">
     <div class="row">
       <div class="col-md-4">
@@ -10,10 +10,10 @@
     </div>
   </div>
   <div class="list-group">
-    <a ng-repeat="Testimony in Testimonials" class="list-group-item">
-      <h4 class="list-group-item-heading" ng-bind="Testimony.fullName"></h4>
-      <p class="list-group-item-text pull-right small" ng-bind="Testimony.testimonial"></p>
-      <p class="list-group-item-text" ng-bind="Testimony.picture"></p>
+    <a ng-repeat="testimonial in testimonials" class="list-group-item">
+      <h4 class="list-group-item-heading" ng-bind="testimonial.fullName"></h4>
+      <p class="list-group-item-text pull-right small" ng-bind="testimonial.testimonial"></p>
+      <p class="list-group-item-text" ng-bind="testimonial.picture"></p>
     </a>
   </div>
 

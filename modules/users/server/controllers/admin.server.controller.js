@@ -75,13 +75,12 @@ exports.list = function (req, res) {
  * List of Testimonials
  */
 exports.listTestimonials = function (req, res) {
-  Testimonial.find({}, '').sort('-created').populate('testimonial').exec(function (err, testimonials) {
+  Testimonial.find().exec(function (err, testimonials) {
     if (err) {
       return res.status(400).send({
         message: errorHandler.getErrorMessage(err)
       });
     }
-
     res.json(testimonials);
   });
 };
