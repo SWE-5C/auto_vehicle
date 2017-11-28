@@ -1,9 +1,34 @@
 'use strict';
 
-angular.module('core').controller('UploadFileController', ['$scope', '$http',
-  function ($scope, $http) {
+angular.module('core').controller('UploadTestimonialController', ['$scope', '$http', '$state',
+  function ($scope, $http, $state) {
 
     $scope.info = "Default";
+
+      $scope.submit = function (isValid) {
+          $scope.error = null;
+
+          if (!isValid) {
+              $scope.$broadcast('show-errors-check-validity', 'userForm');
+
+              return false;
+          }
+          if (!$scope.form.picture){
+              $scope.error = 'Please upload a picture.';
+              return false;
+          }
+
+          $http.post('/api/testimonial/submit', $scope.form).success(function (response) {
+              // If successful we assign the response to the global user model
+              $scope.testimonial = response;
+
+              // And redirect to the previous or home page
+              $state.go('home' || $state.previous.state.name, $state.previous.params);
+          }).error(function (response) {
+              $scope.error = response.message;
+          });
+          //$state.go('home' || $state.previous.state.name, $state.previous.params);
+      };
 
     $scope.uploadFile = function() {
       $scope.info = "TEST";
@@ -22,10 +47,13 @@ angular.module('core').controller('UploadFileController', ['$scope', '$http',
       });
     };
 
-    $scope.example = function () {
+    $scope.uploadWidget = function () {
       document.getElementById("upload_widget_opener").addEventListener("click", function() {
         cloudinary.openUploadWidget({ cloud_name: 'dlrfbhutw', upload_preset: 'da96pduq'},
-          function(error, result) { console.log(error, result); });
+          function(error, result) {
+          console.log(error, result);
+          $scope.form.picture = result[0].url;
+        });
       }, false);
     };
   }

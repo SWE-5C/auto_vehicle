@@ -3,6 +3,11 @@
 module.exports = function (app) {
   // Root routing
   var core = require('../controllers/core.server.controller');
+  var testimonials = require('../controllers/testimonial.server.controller');
+
+  // Route for testimonial submission
+  app.route('/api/testimonial/submit').post(testimonials.submit);
+
   app.route('/test').get(core.testtransloc);
 
   // Define error pages
@@ -14,6 +19,7 @@ module.exports = function (app) {
   // Define application route
 //  app.route('/*').get(core.testtransloc);
   app.route('/*').get(core.renderIndex);
+
 
 
 };

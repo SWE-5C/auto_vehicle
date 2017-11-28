@@ -1,4 +1,4 @@
-<div class="container" ng-controller="HeaderController">
+<div class="container" id="navbar" ng-controller="HeaderController">
   <div class="navbar-header">
     <button class="navbar-toggle" type="button" ng-click="toggleCollapsibleMenu()">
       <span class="sr-only">Toggle navigation</span>
@@ -23,7 +23,11 @@
     <ul class="nav navbar-nav navbar-right" ng-hide="authentication.user">
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a target=_blank href=https://ufl.qualtrics.com/jfe/form/SV_dnGx4WipnOJkwol>Survey</a>
+        <a ui-sref="testimonial-upload">Testimonial</a>
+      </li>
+      <li class="divider-vertical"></li>
+      <li ui-sref-active="active">
+        <a target=_blank ng-click="chooseSurvey(authentication.user)">Survey</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
@@ -42,7 +46,7 @@
     <ul class="nav navbar-nav navbar-right" ng-show="authentication.user">
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
-        <a target=_blank href=https://ufl.qualtrics.com/jfe/form/SV_dnGx4WipnOJkwol>Survey</a>
+        <a target=_blank ng-click="chooseSurvey(authentication.user)">Survey</a>
       </li>
       <li class="divider-vertical"></li>
       <li ui-sref-active="active">
@@ -55,14 +59,10 @@
         </a>
         <ul class="dropdown-menu" role="menu">
           <li ui-sref-active="active">
-            <a ui-sref="testimonial-upload">Submit a Testimonial</a>
-          </li>
-          <li class="divider"></li>
-          <li ui-sref-active="active">
             <a ui-sref="settings.profile">Edit Profile</a>
           </li>
           <li ui-sref-active="active">
-            <a ui-sref="settings.picture">Change Profile Picture</a> 
+            <a ui-sref="settings.picture">Change Profile Picture</a>
           </li>
           <li ui-sref-active="active" ng-show="authentication.user.provider === 'local'">
             <a ui-sref="settings.password">Change Password</a>
