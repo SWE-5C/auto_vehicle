@@ -1,18 +1,67 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Dashboard</title>
+		&nbsp;
+		<center><title class="title">Dashboard</title></center>
+  		<meta charset="utf-8">
+  		<meta name="viewport" content="width=device-width, initial-scale=1">
+  		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+		<style>
+			.top-buffer{
+				margin-top:50px;
+			}
+			.button{
+				align-content: center;
+			}
+			/*.center{
+				text-align:center;
+			}
+			.center div{
+				display:inline-block;
+				margin-left:5px;
+				margin-right:5px;
+			}
+			.button1{
+				bottom:280px;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}
+			.button2{
+				bottom:280px;
+				border: none;
+				color: white;
+				padding: 15px 32px;
+				text-align: center;
+				text-decoration: none;
+				display: inline-block;
+				font-size: 16px;
+			}*/
+			h1 {color:#F9B63C;}
+			body{
+				/*background-color: lightblue;*/
+			}
+		</style>
 	</head>
 	<body>
 		<center><h1>DASHBOARD</h1></center>
-		<a ui-sref = "admin.addAV">
-				<button ng-click>Change Tracked Vehicles</button>
-		</a>
-		<a ui-sref = "admin.addData">
-			<button ng-click>Add Data</button>
-		</a>
-		<a ui-sref = "admin.addUX">
-			<button ng-click>Manage User Experience</button>
-		</a>
+		<div class="row top top-buffer">
+			<div class="button col-md-offset-5 col-sm-offset-4">
+				<a href=https://ufl.qualtrics.com>
+					<button type="button" class="btn btn-primary" ng-click>Add Data</button>
+				</a>
+			
+				<a ui-sref = "admin.addUX">
+					<button type="button" class="btn btn-primary" ng-click>Manage User Experience</button>
+				</a>
+			</div>
+		</div>
 	</body>
 </html>
