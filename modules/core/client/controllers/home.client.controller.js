@@ -7,13 +7,15 @@ angular.module('core').controller('HomeController', ['$scope', 'Authentication',
         // This provides Authentication context.
         $scope.authentication = Authentication;
 
-        $http.get('/api/picks')
-          .then(function (res) {
-            $scope.picks = res.data;
-          },function (err) {
-            console.log(err);
-            }
-          );
+        $scope.grabTestimonials = function initTestimonials() {
+          $http.get('/api/picks')
+            .then(function (res) {
+                $scope.picks = res.data;
+              }, function (err) {
+                console.log(err);
+              }
+            );
+        };
 
 		var periodicCalling = function() { return $http.get('/test').then(function(response) {
 	        $scope.sample = response.data;

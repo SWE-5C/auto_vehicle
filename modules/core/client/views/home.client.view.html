@@ -37,7 +37,7 @@
 
         </div>
       <div id="testimonials">
-            <div class="container">
+            <div class="container" ng-init="grabTestimonials()">
 
 
               <div class="slider">
@@ -48,7 +48,7 @@
                 <div class="slider__inner">
                   <div class="slider__contents"><i class="slider__image fa "></i>
                     <img class="slider__image" src="https://organicthemes.com/demo/profile/files/2012/12/profile_img.png" alt="W3Schools.com" style="width:104px;height:104px; border-radius: 50% ">
-                    <h2 class="slider__caption">Todd</h2>
+                    <h2 class="slider__caption">{{picks[0].pick1.fullName}}</h2>
                     <p class="slider__txt">Lorem ipsum dolor sit amet, consectetur adipisicing elit. At cupiditate omnis possimus illo quos, corporis minima!</p>
                   </div>
                   <div class="slider__contents"><i class="slider__image fa "></i>
