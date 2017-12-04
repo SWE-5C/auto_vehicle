@@ -29,16 +29,16 @@ angular.module('core')
 
       function initMap() {
         var center = {lat: 29.643971, lng: -82.358410};
-        var vehicle_1 = {lat: 29.643979, lng: -82.358415};
+        var vehicle_1 = {lat: 29.643979, lng: -82.358415};//these are the intial values which dont matter as long as they ar ein Gainesville and dont represent a hughe jump to the first ping location
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,
+          zoom: 14,//zoom out by decreasing this number if you want the path of the vehicles to be larger
           center: center
         });
 
         var marker = new google.maps.Marker({
           position: center,
           map: map,
-          label: '1'
+          label: '1'//this represents the text on the markers
         });
 
         var markerTwo = new google.maps.Marker({
@@ -55,21 +55,21 @@ angular.module('core')
 
 
         function moveMarker(){
-          if ($scope.sample[1] !== null){
+          if ($scope.sample[1] !== null){//change the number inside of the brackets once you have your autonomous vehicles up and running
             var test_lat = $scope.sample[1].location.lat;
             var test_lng = $scope.sample[1].location.lng;
             var latlng = new google.maps.LatLng(test_lat, test_lng);
             marker.setPosition(latlng);
           }
 
-          if ($scope.sample[0] !== null){
+          if ($scope.sample[0] !== null){//same as abouve for second vehicle
             var test_lat = $scope.sample[0].location.lat;
             var test_lng = $scope.sample[0].location.lng;
             var latlng = new google.maps.LatLng(test_lat, test_lng);
             markerTwo.setPosition(latlng);
           }
 
-          if ($scope.sample[2] !== null){
+          if ($scope.sample[2] !== null){// same as above for third vehicle
             var test_lat = $scope.sample[2].location.lat;
             var test_lng = $scope.sample[2].location.lng;
             var latlng = new google.maps.LatLng(test_lat, test_lng);
@@ -77,7 +77,7 @@ angular.module('core')
           }
 
           //console.log(marker.position.lat);
-        } setInterval(moveMarker, 1000);
+        } setInterval(moveMarker, 1000);//refresh every 1000 ms change the number for a faster or slower refresh rate
 
         //console.log("center: ", $scope.marker2.position);
       }
