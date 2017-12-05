@@ -14,7 +14,7 @@ angular.module('users.admin').factory('Picks', ['$http',
       // },
 
       update: function(id, pick) {
-        return $http.put('http://localhost:3000/api/picks/' + id, pick);
+        return $http.put('/api/picks/' + id, pick);
       }
 
       // delete: function(id) {
