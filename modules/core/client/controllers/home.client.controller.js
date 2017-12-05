@@ -16,7 +16,7 @@ angular.module('core')
           );
       };
 
-      $scope.periodicCalling = function() { return $http.get('/test').then(function(response) {
+      $scope.periodicCalling = function() { return $http.get('/api/test').then(function(response) {
         $scope.sample = response.data;
         //console.log($scope.sample[0].location);
         //console.log($scope.sample[1].location);
