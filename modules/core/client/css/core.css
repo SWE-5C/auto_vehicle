@@ -64,7 +64,7 @@ a:hover .header-profile-image {
 header.masthead {
   position: relative;
   width: 100%;
-  min-height: auto;
+  min-height: 100px;
   text-align: center;
   color: white;
   background-image: url("../img/century\ tower.jpg");
@@ -282,38 +282,7 @@ hr {
     margin-bottom: 0.75em;
   }
 }
-/*.mail {*/
-  /*background: transparent url(images/bg-sprite-transparent.png) -474px -77px no-repeat;*/
-  /*padding-left:30px;*/
-  /*margin-left:5px;*/
-  /*height:20px;*/
-/*}*/
-/*.phone {*/
-  /*background: transparent url(images/bg-sprite-transparent.png) -1263px -394px no-repeat;*/
-  /*padding-left:30px;*/
-  /*margin-left:5px;*/
-  /*height:20px;*/
-/*}*/
-/*.pnetf {*/
-  /*background: transparent url(images/bg-sprite-transparent.png) -238px -250px no-repeat;*/
-  /*width:360px;*/
-  /*height:70px;*/
-  /*margin:0 auto;*/
-/*}*/
-/*.uf-logo {*/
-  /*width:210px;*/
-  /*height:50px;*/
-  /*background: transparent url(images/bg-sprite-transparent.png) -10px -268px no-repeat;*/
-/*}*/
-/*.gift {*/
-  /*padding: 15px 0 15px 50px;*/
-  /*background: transparent url(images/bg-sprite-transparent.png) -750px -155px no-repeat;*/
-/*}*/
-/*.online-store {*/
-  /*padding-left: 0px;*/
-  /*min-height:40px;*/
-  /*background: transparent url(images/bg-sprite-transparent.png) -750px -226px no-repeat;*/
-/*}*/
+
 .footer-bottom {
   background-color:$black-50;
   color: $black-75;
@@ -340,14 +309,6 @@ html, body {
   height: 100%;
 }
 
-/*body {*/
-/*color: #444;*/
-/*font-family: 'Roboto', sans-serif;*/
-/*font-size: 1rem;*/
-/*line-height: 1.5;*/
-/*}*/
-
-
 @-webkit-keyframes check {
   50% {
     outline-color: #333;
@@ -369,4 +330,3 @@ html, body {
     box-shadow: 0 0 0 0 #333, 0 0 0 0 rgba(51, 51, 51, 0);
   }
 }
-
