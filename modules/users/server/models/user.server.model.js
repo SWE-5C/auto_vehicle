@@ -27,20 +27,6 @@ var validateLocalStrategyEmail = function (email) {
 /**
  * User Schema
  */
-var CarsSchema = new Schema({
-  vehicle1: {
-    type: String,
-    trim: true
-  },
-  vehicle2: {
-    type: String,
-    trim: true
-  },
-  vehicle3: {
-    type: String,
-    trim: true
-  }
-});
 var UserSchema = new Schema({
   firstName: {
     type: String,

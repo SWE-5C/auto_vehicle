@@ -19,12 +19,11 @@ module.exports = function (app) {
     .get(admin.listTestimonials);
 
   app.route('/api/picks')
-    .get(admin.listPicks)
-    .post(admin.updatePicks);
+    .get(admin.listPicks);
 
   app.route('/api/picks/:pickId')
-    .get(admin.listPicks)
-    .delete(admin.deletePick);
+    .delete(admin.deletePick)
+    .put(admin.updatePicks);
 
   app.param('pickId', admin.pickByID);
 
@@ -39,6 +38,8 @@ module.exports = function (app) {
 
   // Finish by binding the user middleware
   app.param('userId', admin.userByID);
+
+  app.param('pickId', admin.pickByID);
 
   app.route('/:testimonialId')
     .get(admin.readTest);
