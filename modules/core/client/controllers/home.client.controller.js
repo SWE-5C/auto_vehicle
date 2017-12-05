@@ -43,11 +43,11 @@ angular.module('core')
           label: '2'
         });
 
-        var markerThree = new google.maps.Marker({
-          position: center,
-          map: map,
-          label: '3'
-        });
+        // var markerThree = new google.maps.Marker({
+        //   position: center,
+        //   map: map,
+        //   label: '3'
+        // });
 
 
         var moveMarker = function(){
@@ -69,13 +69,13 @@ angular.module('core')
             markerTwo.setPosition(latlng);
           }
 
-          if ($scope.sample[2] != null){
-            var test_lat = $scope.sample[2].location.lat;
-            var test_lng = $scope.sample[2].location.lng;
-            //console.log(test_lat + " " + test_lng);
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
-            markerThree.setPosition(latlng);
-          }
+          // if ($scope.sample[2] != null){
+          //   var test_lat = $scope.sample[2].location.lat;
+          //   var test_lng = $scope.sample[2].location.lng;
+          //   //console.log(test_lat + " " + test_lng);
+          //   var latlng = new google.maps.LatLng(test_lat, test_lng);
+          //   markerThree.setPosition(latlng);
+          // }
           //console.log(marker.position.lat);
         }
         setInterval(moveMarker, 1000);
