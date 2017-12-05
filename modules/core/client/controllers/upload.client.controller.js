@@ -5,30 +5,30 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
 
     $scope.info = "Default";
 
-      $scope.submit = function (isValid) {
-          $scope.error = null;
+    // Handles testimonial form submission
+    $scope.submit = function (isValid) {
+      $scope.error = null;
 
-          if (!isValid) {
-              $scope.$broadcast('show-errors-check-validity', 'userForm');
+      if (!isValid) {
+        $scope.$broadcast('show-errors-check-validity', 'userForm');
 
-              return false;
-          }
-          if (!$scope.form.picture){
-              $scope.error = 'Please upload a picture.';
-              return false;
-          }
+        return false;
+      }
+      if (!$scope.form.picture){
+        $scope.error = 'Please upload a picture.';
+        return false;
+      }
 
-          $http.post('/api/testimonial/submit', $scope.form).success(function (response) {
-              // If successful we assign the response to the global user model
-              $scope.testimonial = response;
+      $http.post('/api/testimonial/submit', $scope.form).success(function (response) {
+        // If successful we assign the response to the global testimonial model
+        $scope.testimonial = response;
 
-              // And redirect to the previous or home page
-              $state.go('home' || $state.previous.state.name, $state.previous.params);
-          }).error(function (response) {
-              $scope.error = response.message;
-          });
-          //$state.go('home' || $state.previous.state.name, $state.previous.params);
-      };
+        // And redirect to the previous or home page
+        $state.go('home' || $state.previous.state.name, $state.previous.params);
+      }).error(function (response) {
+        $scope.error = response.message;
+      });
+    };
 
     $scope.uploadFile = function() {
       $scope.info = "TEST";
@@ -47,13 +47,15 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
       });
     };
 
+    // Function for the cloudinary upload widget
+    // Replace cloud_name with your cloud's unique name and upload_preset with your upload preset
     $scope.uploadWidget = function () {
       document.getElementById("upload_widget_opener").addEventListener("click", function() {
         cloudinary.openUploadWidget({ cloud_name: 'dlrfbhutw', upload_preset: 'da96pduq'},
           function(error, result) {
-          console.log(error, result);
-          $scope.form.picture = result[0].url;
-        });
+            console.log(error, result);
+            $scope.form.picture = result[0].url;
+          });
       }, false);
     };
   }

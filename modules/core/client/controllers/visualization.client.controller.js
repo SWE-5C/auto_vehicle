@@ -5,6 +5,8 @@ angular.module('core').controller('VisualizationController', ['$scope', 'Authent
     // This provides Authentication context.
     $scope.authentication = Authentication;
 
+    // Loads tableau visualization
+    // Replace url with your visualization's url
     $scope.tester = function() {
       var containerDiv = document.getElementById("vizContainer"),
         url = "https://public.tableau.com/views/BusSurvey_updated/Final",
