@@ -6,6 +6,7 @@ angular.module('core')
       // This provides Authentication context.
       $scope.authentication = Authentication;
 
+      // Grabs testimonials from the database
       $scope.grabTestimonials = function initTestimonials() {
         $http.get('/api/picks')
           .then(function (res) {
@@ -42,11 +43,11 @@ angular.module('core')
           label: '2'
         });
 
-        var markerThree = new google.maps.Marker({
-          position: center,
-          map: map,
-          label: '3'
-        });
+        // var markerThree = new google.maps.Marker({
+        //   position: center,
+        //   map: map,
+        //   label: '3'
+        // });
 
 
         var moveMarker = function(){
@@ -68,14 +69,13 @@ angular.module('core')
             markerTwo.setPosition(latlng);
           }
 
-          if ($scope.sample[2] != null){
-            var test_lat = $scope.sample[2].location.lat;
-            var test_lng = $scope.sample[2].location.lng;
-            //console.log(test_lat + " " + test_lng);
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
-            markerThree.setPosition(latlng);
-          }
-
+          // if ($scope.sample[2] != null){
+          //   var test_lat = $scope.sample[2].location.lat;
+          //   var test_lng = $scope.sample[2].location.lng;
+          //   //console.log(test_lat + " " + test_lng);
+          //   var latlng = new google.maps.LatLng(test_lat, test_lng);
+          //   markerThree.setPosition(latlng);
+          // }
           //console.log(marker.position.lat);
         }
         setInterval(moveMarker, 1000);
@@ -101,8 +101,9 @@ angular.module('core')
       $scope.testChange = function() {
         console.log("home");
         initMap();
-      }
+      };
 
+      // Loads the Twitter API
       window.twttr = (function(d, s, id) {
         var js, fjs = d.getElementsByTagName(s)[0],
           t = window.twttr || {};

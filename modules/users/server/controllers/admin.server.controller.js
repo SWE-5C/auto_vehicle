@@ -133,23 +133,34 @@ exports.listPicks = function (req, res) {
  * Update Picks
  */
 exports.updatePicks = function (req, res) {
-  var pick = new Pick(req.body);
-  //pick = req.pick.body;
-  //console.log(pick);
+  // var pick = new Pick(req.body);
+  console.log("test");
+  var pick = req.pick;
 
-  // pick.pick1.fullName = req.pick1.fullName;
-  // // pick.lastName = req.body.lastName;
-  // // pick.displayName = user.firstName + ' ' + user.lastName;
-  // // pick.roles = req.body.roles;
+  console.log('HELLO2');
+  pick.pick1.fullName = req.body.pick1.fullName;
+  pick.pick1.text = req.body.pick1.text;
+  pick.pick1.url = req.body.pick1.url;
+
+  pick.pick2.fullName = req.body.pick2.fullName;
+  pick.pick2.text = req.body.pick2.text;
+  pick.pick2.url = req.body.pick2.url;
+
+  pick.pick3.fullName = req.body.pick3.fullName;
+  pick.pick3.text = req.body.pick3.text;
+  pick.pick3.url = req.body.pick3.url;
+
+  pick.pick4.fullName = req.body.pick4.fullName;
+  pick.pick4.text = req.body.pick4.text;
+  pick.pick4.url = req.body.pick4.url;
 
   pick.save(function (err) {
     if (err) {
-      return res.status(400).send({
-        message: errorHandler.getErrorMessage(err)
-      });
+      console.log(err);
+      res.status(400).send(err);
+    } else {
+      res.json(pick);
     }
-
-    res.json(pick);
   });
 };
 
