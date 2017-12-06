@@ -43,47 +43,31 @@ angular.module('core')
           label: '2'
         });
 
-        // var markerThree = new google.maps.Marker({
-        //   position: center,
-        //   map: map,
-        //   label: '3'
-        // });
-
-
         var moveMarker = function(){
-          if ($scope.sample == null){
+          var test_lat;
+          var test_lng;
+          var latlng;
+
+          if ($scope.sample === null){
             return;
           }
 
-          if ($scope.sample[1] != null){
-            var test_lat = $scope.sample[1].location.lat;
-            var test_lng = $scope.sample[1].location.lng;
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
+          if ($scope.sample[1] !== null){
+            test_lat = $scope.sample[1].location.lat;
+            test_lng = $scope.sample[1].location.lng;
+            latlng = new google.maps.LatLng(test_lat, test_lng);
             marker.setPosition(latlng);
           }
 
-          if ($scope.sample[0] != null){
-            var test_lat = $scope.sample[0].location.lat;
-            var test_lng = $scope.sample[0].location.lng;
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
+          if ($scope.sample[0] !== null){
+            test_lat = $scope.sample[0].location.lat;
+            test_lng = $scope.sample[0].location.lng;
+            latlng = new google.maps.LatLng(test_lat, test_lng);
             markerTwo.setPosition(latlng);
           }
-
-          // if ($scope.sample[2] != null){
-          //   var test_lat = $scope.sample[2].location.lat;
-          //   var test_lng = $scope.sample[2].location.lng;
-          //   //console.log(test_lat + " " + test_lng);
-          //   var latlng = new google.maps.LatLng(test_lat, test_lng);
-          //   markerThree.setPosition(latlng);
-          // }
-          //console.log(marker.position.lat);
-        }
+        };
         setInterval(moveMarker, 1000);
-
-        //console.log("center: ", $scope.marker2.position);
       }
-      // $scope.initialize = function() {
-      // google.maps.event.addDomListener(window, "load", initMap);
 
       $scope.$on('$stateChangeStart', function() {
         $scope.stateChange();

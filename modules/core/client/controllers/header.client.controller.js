@@ -12,7 +12,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
     // Toggle the menu items
     $scope.isCollapsed = false;
     $scope.chooseSurvey = function(user){
-      if(user == ""){
+      if(user === ""){
         window.open("https://ufl.qualtrics.com/jfe/form/SV_dnGx4WipnOJkwol");
         //console.log("EMPTY USER");
       }
@@ -20,7 +20,7 @@ angular.module('core').controller('HeaderController', ['$scope', '$state', 'Auth
         window.open("https://ufl.qualtrics.com/jfe/form/SV_9BQkXEU3sa4v4Bn");
         //console.log("HAS ACCOUNT");
       }
-    }
+    };
     $scope.toggleCollapsibleMenu = function () {
       $scope.isCollapsed = !$scope.isCollapsed;
     };

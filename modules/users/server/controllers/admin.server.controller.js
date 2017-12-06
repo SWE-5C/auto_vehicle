@@ -176,7 +176,7 @@ exports.deletePick = function(req, res) {
     else {
       res.end();
     }
-  })
+  });
 };
 
 /**
