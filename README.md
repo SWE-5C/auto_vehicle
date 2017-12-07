@@ -46,3 +46,30 @@ A graphical representation of the data accumulated from survey responses. This p
 run grunt --force in terminal (make sure ruby, bower, and npm have already been installed and the 
 github repo has been cloned)
 Open browser and type 'localhost:3000' in url bar
+
+
+**Deployment Information**
+Links:
+GitHub (Code Repository) - https://github.com/SWE-5C/auto_vehicle
+Web Server Hosting Provider - Heroku https://id.heroku.com/login
+API Keys
+-	Transloc API
+
+We are using a Mongo database for your web app. It is located at https://mlab.com/login/. Your capacity is 0.5 GB and you are currently using 16 MB. This is free.
+
+
+If you want to change your database username and password, visit https://mlab.com/user?username=gvilleavs
+If you want to review your account visit https://mlab.com/account-details/ 
+
+If you want to change out of your database, you will need to set the current URI to your new URI.
+You can update this value in your web app in 
+**development.js – config/env/**
+
+![alt tag](http://gdurl.com/8YkT)
+
+Image Storage
+We are currently storing your images for your web app on Cloudinary. Your capacity is 10 GB 
+
+If you want to change your image storage username and password, visit https://cloudinary.com/console/settings/users 
+If you want to review your account visit https://cloudinary.com/console/settings/users 
+
