@@ -1,5 +1,6 @@
+Link to deployed web app: https://auto-vehicle.herokuapp.com/
+Credit(API): GoogleMaps, Transloc, Bootstrap
 Features:
-
 **GPS Locator**
 ![alt tag](http://gdurl.com/OUID)
 This map tracks the location of the autonomous vehicles and updates the in real time
@@ -39,3 +40,5 @@ When the ‘Add Data’ button is clicked in the admin dashboard, the admin is r
 **Data Visualization**
 ![alt tag](http://gdurl.com/hvAv)
 A graphical representation of the data accumulated from survey responses. This page is accessed by logging into the app as an admin and clicking on the ‘Responses’ tab in the header navbar.
+
+
