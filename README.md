@@ -43,5 +43,6 @@ A graphical representation of the data accumulated from survey responses. This p
 
 
 **How to run project locally:**
-run grunt --force in terminal
+run grunt --force in terminal (make sure ruby, bower, and npm have already been installed and the 
+github repo has been cloned)
 Open browser and type 'localhost:3000' in url bar
