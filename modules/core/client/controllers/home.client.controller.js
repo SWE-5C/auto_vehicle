@@ -17,87 +17,95 @@ angular.module('core')
           );
       };
 
+      // periodic calling calls the request to the transloc api
       var periodicCalling = function() { return $http.get('/api/test').then(function(response) {
+        // transloc json is saved to "sample"
         $scope.sample = response.data;
       });
       };
-      // setInterval(periodicCalling, 1000);
+      // create a promise whenever the screen is initialized that can be cancelled later using the cancel promse function
       var promise = $interval(periodicCalling, 1000);
 
+      //function to initialize the map
       function initMap() {
+        //centers the map at the University of Florida
         var center = {lat: 29.643971, lng: -82.358410};
         var map = new google.maps.Map(document.getElementById('map'), {
+          // zoom 14 appeared to look the best
           zoom: 14,
           center: center
         });
 
+        // marker for vehicel 1
         var marker = new google.maps.Marker({
+          // position of vehicle 1 marker is the center of the map while it is waiting on the information from $scope.sample
           position: center,
           map: map,
           label: '1'
         });
 
+        // marker for vehicel 1
         var markerTwo = new google.maps.Marker({
+          // position of vehicle 2 marker is the center of the map while it is waiting on the information from $scope.sample
           position: center,
           map: map,
           label: '2'
         });
 
-        // var markerThree = new google.maps.Marker({
-        //   position: center,
-        //   map: map,
-        //   label: '3'
-        // });
-
-
         var moveMarker = function(){
-          if ($scope.sample == null){
+          var test_lat;
+          var test_lng;
+          var latlng;
+
+          // ends the function if the sample is null (which can occur the first few seconds of the page load)
+          // the set interval function allows the application to keep checking
+          // once there is a sample this is not hit anymore
+          if ($scope.sample === null){
             return;
           }
 
-          if ($scope.sample[1] != null){
-            var test_lat = $scope.sample[1].location.lat;
-            var test_lng = $scope.sample[1].location.lng;
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
+          // sets the new position for vehicle 1
+          if ($scope.sample[1] !== null){
+            // $scope.sample[1] is the second vehicle in the array of University of Florida Vehicles
+            test_lat = $scope.sample[1].location.lat;
+            test_lng = $scope.sample[1].location.lng;
+            latlng = new google.maps.LatLng(test_lat, test_lng);
             marker.setPosition(latlng);
           }
-
-          if ($scope.sample[0] != null){
-            var test_lat = $scope.sample[0].location.lat;
-            var test_lng = $scope.sample[0].location.lng;
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
+          
+          // sets the new position for vehicle 2
+          if ($scope.sample[0] !== null){
+            // $scope.sample[0] is the first vehicle in the array of University of Florida Vehicles
+            test_lat = $scope.sample[0].location.lat;
+            test_lng = $scope.sample[0].location.lng;
+            latlng = new google.maps.LatLng(test_lat, test_lng);
             markerTwo.setPosition(latlng);
           }
+        };
 
-          // if ($scope.sample[2] != null){
-          //   var test_lat = $scope.sample[2].location.lat;
-          //   var test_lng = $scope.sample[2].location.lng;
-          //   //console.log(test_lat + " " + test_lng);
-          //   var latlng = new google.maps.LatLng(test_lat, test_lng);
-          //   markerThree.setPosition(latlng);
-          // }
-          //console.log(marker.position.lat);
-        }
+        // Periodically calls the move marker function in order to create new marker
+        // locations and give them the appearance of moving along the map
         setInterval(moveMarker, 1000);
-
-        //console.log("center: ", $scope.marker2.position);
       }
-      // $scope.initialize = function() {
-      // google.maps.event.addDomListener(window, "load", initMap);
 
+      // checks for state change
       $scope.$on('$stateChangeStart', function() {
         $scope.stateChange();
         $scope.cancel();
       });
+
+      // stops the api call once you leave the state and page
       $scope.cancel = function () {
           $interval.cancel(promise);
       };
 
+      // displays on the console upon state change
       $scope.stateChange = function() {
         console.log("State Changed");
 
       };
 
+      // initializes the map
       $scope.testChange = function() {
         console.log("home");
         initMap();

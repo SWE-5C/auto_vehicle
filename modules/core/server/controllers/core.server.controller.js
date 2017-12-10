@@ -41,6 +41,7 @@ exports.renderNotFound = function (req, res) {
   });
 };
 
+// This is the call to the Mashape api that has access to the transloc json
 exports.testtransloc = function (req, res) {
   // These code snippets use an open-source library. http://unirest.io/nodejs
 //  unirest.get("https://transloc-api-1-2.p.mashape.com/vehicles.json?agencies=116&callback=call")
@@ -48,7 +49,7 @@ exports.testtransloc = function (req, res) {
   .header("X-Mashape-Key", "gkw2IczalYmshkzU3pZ8HfBvxWovp1KyxDOjsnIs9UF1JzRdgX")
   .header("Accept", "application/json")
   .end(function (result) {
-//    console.log(result.body);
+    // '116' is the agency number of the University of Florida
     res.json(result.body.data['116']);
   });
 

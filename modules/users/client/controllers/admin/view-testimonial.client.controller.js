@@ -33,9 +33,10 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
         .then(function (res) {
             $scope.picks = res.data;
             console.log($scope.picks);
+            var pick;
             switch(num) {
               case 1:
-                var pick = {
+                pick = {
                   pick1: {
                     fullName: $scope.testimonial.fullName,
                     text: $scope.testimonial.testimonial,
@@ -59,7 +60,7 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 };
                 break;
               case 2:
-                var pick = {
+                pick = {
                   pick1: {
                     fullName: $scope.picks[0].pick1.fullName,
                     text: $scope.picks[0].pick1.text,
@@ -83,7 +84,7 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 };
                 break;
               case 3:
-                var pick = {
+                pick = {
                   pick1: {
                     fullName: $scope.picks[0].pick1.fullName,
                     text: $scope.picks[0].pick1.text,
@@ -107,7 +108,7 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 };
                 break;
               case 4:
-                var pick = {
+                pick = {
                   pick1: {
                     fullName: $scope.picks[0].pick1.fullName,
                     text: $scope.picks[0].pick1.text,
