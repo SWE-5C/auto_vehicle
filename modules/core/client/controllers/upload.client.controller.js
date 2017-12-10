@@ -51,7 +51,7 @@ angular.module('core').controller('UploadTestimonialController', ['$scope', '$ht
     // Replace cloud_name with your cloud's unique name and upload_preset with your upload preset
     $scope.uploadWidget = function () {
       document.getElementById("upload_widget_opener").addEventListener("click", function() {
-        cloudinary.openUploadWidget({ cloud_name: 'dlrfbhutw', upload_preset: 'da96pduq'},
+        cloudinary.openUploadWidget({ cloud_name: 'du0zfr98e', upload_preset: 'p9bl0qdo'},
           function(error, result) {
             console.log(error, result);
             $scope.form.picture = result[0].url;

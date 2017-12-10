@@ -30,6 +30,6 @@ angular.module('users.admin').controller('UserExperienceController', ['$scope', 
 
     $scope.pageChanged = function () {
       $scope.figureOutItemsToDisplay();
-    }
+    };
   }
 ]);

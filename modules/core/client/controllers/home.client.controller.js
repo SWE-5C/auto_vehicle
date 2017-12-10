@@ -52,33 +52,37 @@ angular.module('core')
           label: '2'
         });
 
-
         var moveMarker = function(){
+          var test_lat;
+          var test_lng;
+          var latlng;
+
           // ends the function if the sample is null (which can occur the first few seconds of the page load)
           // the set interval function allows the application to keep checking
           // once there is a sample this is not hit anymore
-          if ($scope.sample == null){
+          if ($scope.sample === null){
             return;
           }
 
           // sets the new position for vehicle 1
-          if ($scope.sample[1] != null){
+          if ($scope.sample[1] !== null){
             // $scope.sample[1] is the second vehicle in the array of University of Florida Vehicles
-            var test_lat = $scope.sample[1].location.lat;
-            var test_lng = $scope.sample[1].location.lng;
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
+            test_lat = $scope.sample[1].location.lat;
+            test_lng = $scope.sample[1].location.lng;
+            latlng = new google.maps.LatLng(test_lat, test_lng);
             marker.setPosition(latlng);
           }
-
+          
           // sets the new position for vehicle 2
-          if ($scope.sample[0] != null){
-            // $scope.sample[1] is the first vehicle in the array of University of Florida Vehicles
-            var test_lat = $scope.sample[0].location.lat;
-            var test_lng = $scope.sample[0].location.lng;
-            var latlng = new google.maps.LatLng(test_lat, test_lng);
+          if ($scope.sample[0] !== null){
+            // $scope.sample[0] is the first vehicle in the array of University of Florida Vehicles
+            test_lat = $scope.sample[0].location.lat;
+            test_lng = $scope.sample[0].location.lng;
+            latlng = new google.maps.LatLng(test_lat, test_lng);
             markerTwo.setPosition(latlng);
           }
-        }
+        };
+
         // Periodically calls the move marker function in order to create new marker
         // locations and give them the appearance of moving along the map
         setInterval(moveMarker, 1000);
