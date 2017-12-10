@@ -50,17 +50,19 @@ angular.module('users').controller('AuthenticationController', ['$scope', '$stat
         var flag = Boolean(false);
         var arrayLength = $scope.authentication.user.roles.length;
         for(var index=0; index<arrayLength; index++){
+          //check to see if user is an admin
           if($scope.authentication.user.roles[index] === 'admin'){
             console.log("FOUND");
             flag = true;
           }
         }
 
-        // And redirect to the previous or home page
+        // User that is admin is redirected to admin dashboard after signing in
         if(flag){
           $state.go(/*$state.previous.state.name ||*/ 'dashboard', $state.previous.params);
         }
 
+        // User that is not admin is redirected to home page after signing in
         else{
           $state.go($state.previous.state.name || 'home', $state.previous.params);
         }
