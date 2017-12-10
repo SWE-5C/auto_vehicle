@@ -14,6 +14,7 @@ var path = require('path'),
 
 /**
  * Submit
+ * Saves the testimonial to the database
  */
 exports.submit = function (req, res) {
   // For security measurement we remove the roles from the req.body object

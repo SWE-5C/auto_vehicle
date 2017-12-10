@@ -1,10 +1,19 @@
 'use strict';
 
-angular.module('users.admin').controller('TestimonialController', ['$scope', '$state', '$stateParams', 'Authentication', '$http',
-  function ($scope, $state, $stateParams, Authentication, $http) {
+angular.module('users.admin').controller('TestimonialController', ['$scope', '$state', 'Picks', '$stateParams', 'Authentication', '$http',
+  function ($scope, $state, Picks, $stateParams, Authentication, $http) {
     $scope.authentication = Authentication;
-    $scope.pickNum = 1;
-    $scope.count = 0;
+
+    $scope.grabTestimonials = function initTestimonials() {
+      $http.get('/api/picks')
+        .then(function (res) {
+            $scope.picks = res.data;
+          }, function (err) {
+            console.log(err);
+          }
+        );
+    };
+
     $scope.findOne = function() {
 
       $scope.id = $stateParams.testimonialId;
@@ -18,15 +27,15 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
         );
     };
 
-    $scope.update = function () {
+    $scope.update = function (num) {
       //var picks = 0;
       $http.get('/api/picks')
         .then(function (res) {
             $scope.picks = res.data;
             console.log($scope.picks);
-            switch($scope.pickNum) {
+            switch(num) {
               case 1:
-                var chosen = {
+                var pick = {
                   pick1: {
                     fullName: $scope.testimonial.fullName,
                     text: $scope.testimonial.testimonial,
@@ -50,7 +59,7 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 };
                 break;
               case 2:
-                var chosen = {
+                var pick = {
                   pick1: {
                     fullName: $scope.picks[0].pick1.fullName,
                     text: $scope.picks[0].pick1.text,
@@ -74,7 +83,7 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 };
                 break;
               case 3:
-                var chosen = {
+                var pick = {
                   pick1: {
                     fullName: $scope.picks[0].pick1.fullName,
                     text: $scope.picks[0].pick1.text,
@@ -98,7 +107,7 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 };
                 break;
               case 4:
-                var chosen = {
+                var pick = {
                   pick1: {
                     fullName: $scope.picks[0].pick1.fullName,
                     text: $scope.picks[0].pick1.text,
@@ -123,37 +132,22 @@ angular.module('users.admin').controller('TestimonialController', ['$scope', '$s
                 break;
             }
 
-            $http.post('/api/picks', chosen)
-              .then(function (res) {
-                  $scope.picks = res.data;
-                  $scope.count++;
-                $http.get('/api/picks')
-                  .then(function (res) {
-                      $scope.tbDeleted = res.data[0]._id;
-                      console.log($scope.tbDeleted);
-                    $http.delete('/api/picks/'+ $scope.tbDeleted)
-                      .then(function (res) {
-                          $scope.picks = res.data;
-                        }, function (err) {
-                          console.log(err);
-                        }
-                      );
-                    }, function (err) {
-                      console.log(err);
-                    }
-                  );
-                }, function (err) {
-                  console.log(err);
-                }
-              );
+          // ID OF THE HOME PAGE TESTIMONIAL CHOICES
+          var id = '5a26c529294e624ae8d8d218';
+
+          Picks.update(id, pick)
+            .then(function(response) {
+              //if the object is successfully updated redirect back to the list page
+              $state.go('admin.addUX', { successMessage: 'Testimonial successfully updated!' });
+            }, function(error) {
+              //otherwise display the error
+              $scope.error = 'Unable to update testimonial!\n' + error;
+            });
+
           }, function (err) {
             console.log(err);
           }
         );
-
-      // console.log("TEST");
-      // console.log(picks);
-
     };
   }
 ]);

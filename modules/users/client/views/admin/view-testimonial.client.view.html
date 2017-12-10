@@ -1,29 +1,65 @@
-<div ng-init="findOne()">
+<section ng-init="findOne()">
   <div class="page-header">
     <div class="row">
-        <h1 style="text-align: center;" ng-bind="testimonial.fullName"></h1>
+      <h1 style="text-align: center;" ng-bind="testimonial.fullName"></h1>
     </div>
   </div>
-<div style="position: absolute; left: 30%;">
-  <div class="row">
-    <div class="col-md-8">
-      <div class="row">
-        <div class="col-md-3"><strong>Testimonial</strong></div>
-        <div class="col-md-6" ng-bind="testimonial.testimonial"></div>
-      </div>
-      <hr/>
-      <div class="row">
-        <div class="col-md-3"><strong>Picture</strong></div>
-        <div class="col-md-6"><img style="height: 150px; width: auto;" src={{testimonial.picture}}></img></div>
-      </div>
-      <hr/>
-      <div class="row">
-        <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update()">Place in Position 1</button></div>
-        <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update()">Place in Position 2</button></div>
-        <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update()">Place in Position 3</button></div>
-        <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update()">Place in Position 4</button></div>
+  <div style="position: absolute; left: 30%;">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="row">
+          <div class="col-md-3"><strong>Testimonial</strong></div>
+          <div class="col-md-6" ng-bind="testimonial.testimonial"></div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-md-3"><strong>Picture</strong></div>
+          <div class="col-md-6"><img style="height: 150px; width: auto;" src={{testimonial.picture}}></img></div>
+        </div>
+        <hr/>
+        <div class="row">
+          <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update(1)">Place in Position 1</button></div>
+          <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update(2)">Place in Position 2</button></div>
+          <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update(3)">Place in Position 3</button></div>
+          <div class="col-md-3"><button type="button" class="btn btn-info" ng-click="update(4)">Place in Position 4</button></div>
+        </div>
+        <div id="testimonials" style="position: absolute; left: -50%;">
+          <h2>Current Testimonials</h2>
+          <div class="container" ng-init="grabTestimonials()">
+
+
+            <div class="slider">
+              <div class="slider__inner">
+                <div class="slider__contents"><i class="slider__image fa "></i>
+                  <img class="slider__image" src={{picks[0].pick1.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                  <h2 class="slider__caption">{{picks[0].pick1.fullName}}</h2>
+                  <p class="slider__txt">{{picks[0].pick1.text}}</p>
+                </div>
+                <div class="slider__contents"><i class="slider__image fa "></i>
+                  <img class="slider__image" src={{picks[0].pick2.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                  <h2 class="slider__caption">{{picks[0].pick2.fullName}}</h2>
+                  <p class="slider__txt">{{picks[0].pick2.text}}</p>
+                </div>
+                <div class="slider__contents"><i class="slider__image fa  "></i>
+                  <img class="slider__image" src={{picks[0].pick3.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                  <h2 class="slider__caption">{{picks[0].pick3.fullName}}</h2>
+                  <p class="slider__txt">{{picks[0].pick3.text}}</p>
+                </div>
+                <div class="slider__contents"><i class="slider__image fa "></i>
+                  <img class="slider__image" src={{picks[0].pick4.url}} alt="W3Schools.com" style="width:auto;height:104px; border-radius: 50% ">
+                  <h2 class="slider__caption">{{picks[0].pick4.fullName}}</h2>
+                  <p class="slider__txt">{{picks[0].pick4.text}}</p>
+                </div>
+              </div>
+            </div>
+
+
+
+          </div>
+        </div>
       </div>
     </div>
   </div>
-</div>
+
 </section>
+
