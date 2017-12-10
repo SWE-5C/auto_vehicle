@@ -15,12 +15,16 @@
 
     <accordion-group id="hello" ng-repeat="testimonial in testimonials" ui-sref="admin.testimonial({ testimonialId: testimonial._id })" is-open="status.open" >
       <accordion-heading>
+      <!--Accordion Table-->
         <table>
           <tbody>
             <tr class="tableClass">
+              <!--Display Name of client who wrote testimonial-->
               <td class="col-md-4">{{testimonial.fullName}}</td>
+              <!--Display Testimonial of client who wrote testimonial-->
               <td class="col-md-4">{{testimonial.testimonial}}</td>
               <td class="col-md-2"></td>
+              <!--Display Picture of client who wrote testimonial-->
               <td class = "col-md-4"><img style="height:100px; width:auto;" class="list-group-item-text pull-right small" ng-src="{{testimonial.picture}}"> </img></td>
             </tr>
           </tbody>
