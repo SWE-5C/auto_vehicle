@@ -1,4 +1,6 @@
-**Link to deployed web app**: https://auto-vehicle.herokuapp.com/
+# Gainesville Autonomous Vehicles
+
+**Link to deployed web app**: https://auto-vehicles.herokuapp.com/
 **Credit(API)**: GoogleMaps, Transloc, Bootstrap, AngularJS
 **Features:**
 **GPS Locator**
