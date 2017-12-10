@@ -25,17 +25,16 @@ angular.module('core')
       var promise = $interval(periodicCalling, 1000);
 
       function initMap() {
-        var center = {lat: 29.643971, lng: -82.358410}; //these are the intial values which dont matter as long as they are in Gainesville and dont represent a hughe jump to the first ping location
-
+        var center = {lat: 29.643971, lng: -82.358410};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 14,//zoom out by decreasing this number if you want the path of the vehicles to be larger
+          zoom: 14,
           center: center
         });
 
         var marker = new google.maps.Marker({
           position: center,
           map: map,
-          label: '1'//this represents the text on the markers
+          label: '1'
         });
 
         var markerTwo = new google.maps.Marker({
@@ -56,17 +55,14 @@ angular.module('core')
             return;
           }
 
-
-        function moveMarker(){
-          if ($scope.sample[1] !== null){//change the number inside of the brackets once you have your autonomous vehicles up and running
+          if ($scope.sample[1] != null){
             var test_lat = $scope.sample[1].location.lat;
             var test_lng = $scope.sample[1].location.lng;
             var latlng = new google.maps.LatLng(test_lat, test_lng);
             marker.setPosition(latlng);
           }
 
-
-          if ($scope.sample[0] !== null){//same as abouve for second vehicle
+          if ($scope.sample[0] != null){
             var test_lat = $scope.sample[0].location.lat;
             var test_lng = $scope.sample[0].location.lng;
             var latlng = new google.maps.LatLng(test_lat, test_lng);
@@ -83,7 +79,6 @@ angular.module('core')
           //console.log(marker.position.lat);
         }
         setInterval(moveMarker, 1000);
-
 
         //console.log("center: ", $scope.marker2.position);
       }
