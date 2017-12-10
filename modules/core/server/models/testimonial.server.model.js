@@ -30,7 +30,7 @@ var TestimonialSchema = new Schema({
 });
 
 TestimonialSchema.pre('save', function(next){
-  var currentTime = new Date;
+  var currentTime = new Date();
   this.updated_at = currentTime;
   if(!this.created_at)
   {
